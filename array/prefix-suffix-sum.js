@@ -58,7 +58,7 @@ function subarraySum(nums, k) {
 // find pivot index
 
 function pivotIndex(nums) {
-    let i=0
+    
     let j=0;
     let p=[]
     // console.log(p);
@@ -101,7 +101,7 @@ function pivotIndex(nums) {
     return -1; // No pivot index found
 }
 
-console.log(pivotIndex([1,7,3,6,5,6])); // Output: 3 (index of pivot)
-console.log(pivotIndex([1,2,3])); // Output: -1 (no pivot index)
-console.log(pivotIndex([2,1,-1])); // Output: 0 (index of pivot) 
-console.log(pivotIndex([1,2,3,4,5])); // Output: -1 (no pivot index)
+// console.log(pivotIndex([1,7,3,6,5,6])); // Output: 3 (index of pivot)
+// console.log(pivotIndex([1,2,3])); // Output: -1 (no pivot index)
+// console.log(pivotIndex([2,1,-1])); // Output: 0 (index of pivot) 
+// console.log(pivotIndex([1,2,3,4,5])); // Output: -1 (no pivot index)
