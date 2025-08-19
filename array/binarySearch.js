@@ -103,4 +103,28 @@ const target = 5;
 // console.log(searchInsertPosition(arr, 2)); // Output: 1 (2 should be inserted at index 1)
 // console.log(searchInsertPosition(arr, 0)); // Output: 0 (0 should be inserted at index 0)
 
+// ! find minimum in rotated sorted array
+
+function findMinInRotatedArray(arr) {
+    let s=0; let e=arr.length-1;
+
+    let min=0
+    while (s < e) {
+        let mid = Math.floor((s + e) / 2);
+        if (arr[mid] > arr[e]) {
+            s = mid + 1; // Minimum is in the right half
+        } else {
+            e = mid; // Minimum is in the left half or at mid
+            min = arr[mid]; // Update min to the current mid value
+        }
+        
+    }
+    
+    return min; // Return the minimum element found
+}
+// Example usage
+const arr = [4, 5, 6, 7, 0, 1, 2];
+console.log(findMinInRotatedArray(arr)); // Output: 0
+console.log(findMinInRotatedArray([3, 4, 5, 1, 2])); // Output: 1
+console.log(findMinInRotatedArray([11, 13, 15, 17])); // Output: 11
 
