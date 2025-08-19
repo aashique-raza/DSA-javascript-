@@ -171,8 +171,68 @@ let s=0, e=minimumValueINdex-1;
 // const arr = ;
 // const target = 0;
 // console.log(searchInRotatedArray([1,3], 3)); // Output: 1 (index of target)
-console.log(searchInRotatedArray([4,5,6,7,0,1,2], 0)); // Output: 4 (index of target)
-console.log(searchInRotatedArray([4,5,6,7,0,1,2], 6)); // Output: 2 (index of target)
-console.log(searchInRotatedArray([4,5,6,7,0,1,2], 3)); // Output: -1 (target not found)
-console.log(searchInRotatedArray([6,7,1,2,3,4,5], 2)); // Output: 3 (index of target)
+// console.log(searchInRotatedArray([4,5,6,7,0,1,2], 0)); // Output: 4 (index of target)
+// console.log(searchInRotatedArray([4,5,6,7,0,1,2], 6)); // Output: 2 (index of target)
+// console.log(searchInRotatedArray([4,5,6,7,0,1,2], 3)); // Output: -1 (target not found)
+// console.log(searchInRotatedArray([6,7,1,2,3,4,5], 2)); // Output: 3 (index of target)
 
+// ! sort colors
+
+// approach: Count the occurrences of each color (0, 1, 2) and then reconstruct the array based on these counts.
+function sortColors(arr) {
+    let count0=0 ;
+    let count1=0 ; let count2=0;
+    result=[]
+
+    for(let i=0; i<arr.length; i++) {
+        if(arr[i] === 0) {
+            count0++;
+        } else if(arr[i] === 1) {
+            count1++;
+        } else if(arr[i] === 2) {
+            count2++;
+        }
+    }
+
+    for(let i=0; i<count0; i++) {
+        result.push(0);
+    }
+    for(let i=0; i<count1; i++) {
+        result.push(1);
+    }
+    for(let i=0; i<count2; i++) {
+        result.push(2);
+    }
+    return result; // Return the sorted array
+}
+// Example usage
+// const arr = [2, 0, 2, 1, 1, 0];
+// console.log(sortColors(arr)); // Output: [0, 0, 1, 1, 2, 2]
+
+//  approach: Use the Dutch National Flag algorithm to sort the colors in a single pass.
+var sortColors = function(nums) {
+    let i = 0, j = 0, k = nums.length - 1;
+
+    while (j <= k) {
+        if (nums[j] === 2) {
+            let temp = nums[j];
+            nums[j] = nums[k];
+            nums[k] = temp;
+            k--; // right side shrink
+        } 
+        else if (nums[j] === 0) {
+            let temp = nums[j];
+            nums[j] = nums[i];
+            nums[i] = temp;
+            i++;
+            j++; // dono ko aage badhao
+        } 
+        else {
+            j++; // agar 1 hai to bas mid pointer aage
+        }
+    }
+    return nums;
+};
+// Example usage
+// const arr = [2, 0, 2, 1, 1, 0];
+console.log(sortColors(arr)); // Output: [0, 0, 1, 1, 2, 2]
