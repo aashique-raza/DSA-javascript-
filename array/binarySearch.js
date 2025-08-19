@@ -65,6 +65,42 @@ function findFirstAndLast(arr, target) {
 }
 
 // Example usage
-const arr = [1, 2, 2, 2, 3, 4, 5];
-const target = 2;
-console.log(findFirstAndLast(arr, target)); // Output: [1, 3]
+// const arr = [1, 2, 2, 2, 3, 4, 5];
+// const target = 2;
+// console.log(findFirstAndLast(arr, target)); // Output: [1, 3]
+
+// !   Search Insert Position
+
+function searchInsertPosition(arr, target) {
+    let s=0;
+    let e=arr.length-1;
+    let insertIdx=0
+
+    while (s <= e) {
+         let mid = Math.floor((s + e) / 2);
+
+        if(arr[mid] === target) {
+            insertIdx = mid; // If target is found, return the index
+            return insertIdx;
+        }else if(arr[mid] < target) {
+            s = mid + 1; // Search in the right half
+            insertIdx = mid + 1; // Update insert index to the right of mid
+        }else {
+            e = mid - 1;
+            insertIdx = mid; // Update insert index to the left of mid
+        }
+       
+    }
+    return insertIdx; // Return the index where the target should be inserted
+}
+
+
+// Example usage
+// const arr = [1, 3, 5, 6];
+const target = 5;
+// console.log(searchInsertPosition(arr, target)); // Output: 2 
+// console.log(searchInsertPosition(arr, 7)); // Output: 4 (7 should be inserted at index 4)
+// console.log(searchInsertPosition(arr, 2)); // Output: 1 (2 should be inserted at index 1)
+// console.log(searchInsertPosition(arr, 0)); // Output: 0 (0 should be inserted at index 0)
+
+
