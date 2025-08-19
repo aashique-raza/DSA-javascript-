@@ -106,25 +106,73 @@ const target = 5;
 // ! find minimum in rotated sorted array
 
 function findMinInRotatedArray(arr) {
-    let s=0; let e=arr.length-1;
+    let s = 0, e = arr.length - 1;
 
-    let min=0
     while (s < e) {
         let mid = Math.floor((s + e) / 2);
+
         if (arr[mid] > arr[e]) {
-            s = mid + 1; // Minimum is in the right half
+            s = mid + 1; // min is in right half
         } else {
-            e = mid; // Minimum is in the left half or at mid
-            min = arr[mid]; // Update min to the current mid value
+            e = mid; // min is in left half including mid
         }
-        
     }
+    return s; // at the end, s == e → minimum element
+}
+
+// Example usage
+// const arr = [4, 5, 6, 7, 0, 1, 2];
+// console.log(findMinInRotatedArray(arr)); // Output: 0
+// console.log(findMinInRotatedArray([3, 4, 5, 1, 2])); // Output: 1
+// console.log(findMinInRotatedArray([11, 13, 15, 17])); // Output: 11
+
+// ! Search in Rotated Sorted Array
+
+function searchInRotatedArray(arr, target) {
+
+
+ let minimumValueINdex=findMinInRotatedArray(arr)
+
+ 
+  
+let s=0, e=minimumValueINdex-1;
+// console.log("s: ", s, "e: ", e, "minimumValueINdex: ", minimumValueINdex)
     
-    return min; // Return the minimum element found
+
+    while (s <= e) {
+        let mid = Math.floor((s + e) / 2);
+        if(arr[mid] === target) {
+            return mid; // Return the index if target is found
+        }else if(arr[mid] < target) {
+            s = mid + 1; // Search in the right half
+        }   
+        else {
+            e = mid - 1; // Search in the left half
+        }   
+    }
+
+     
+     let end=arr.length-1
+    while (minimumValueINdex <= end) {
+        let mid = Math.floor((minimumValueINdex + end) / 2);  
+        if(arr[mid] === target) {
+            return mid; // Return the index if target is found
+        }
+        else if(arr[mid] < target) {
+            minimumValueINdex = mid + 1; // Search in the right half
+        }
+        else {
+            end = mid - 1; // Search in the left half
+        }
+    }
+    return -1; // Return -1 if target is not found
 }
 // Example usage
-const arr = [4, 5, 6, 7, 0, 1, 2];
-console.log(findMinInRotatedArray(arr)); // Output: 0
-console.log(findMinInRotatedArray([3, 4, 5, 1, 2])); // Output: 1
-console.log(findMinInRotatedArray([11, 13, 15, 17])); // Output: 11
+// const arr = ;
+// const target = 0;
+// console.log(searchInRotatedArray([1,3], 3)); // Output: 1 (index of target)
+console.log(searchInRotatedArray([4,5,6,7,0,1,2], 0)); // Output: 4 (index of target)
+console.log(searchInRotatedArray([4,5,6,7,0,1,2], 6)); // Output: 2 (index of target)
+console.log(searchInRotatedArray([4,5,6,7,0,1,2], 3)); // Output: -1 (target not found)
+console.log(searchInRotatedArray([6,7,1,2,3,4,5], 2)); // Output: 3 (index of target)
 
