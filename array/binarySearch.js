@@ -295,4 +295,5 @@ var intersection = function(nums1, nums2) {
 
 // Example usage
 
-console.log(intersection([1, 2, 2, 1], [2, 2])); // Output: [2]
+// console.log(intersection([1, 2, 2, 1], [2, 2])); // Output: [2]
+
