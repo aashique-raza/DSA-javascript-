@@ -235,4 +235,64 @@ var sortColors = function(nums) {
 };
 // Example usage
 // const arr = [2, 0, 2, 1, 1, 0];
-console.log(sortColors(arr)); // Output: [0, 0, 1, 1, 2, 2]
+// console.log(sortColors(arr)); // Output: [0, 0, 1, 1, 2, 2]
+
+
+// ! Find pair with given sum 
+
+function findPairWithSum(arr, targetSum) {
+    let left = 0;
+    let right = arr.length - 1;
+
+    while (left < right) {
+
+        let sum = arr[left] + arr[right];
+
+        if(sum === targetSum) {
+            return [arr[left], arr[right]]; // Return the pair if found
+        }
+        else if(sum < targetSum) {
+            left++; // Move left pointer to increase sum
+        }   
+        else {
+            right--; // Move right pointer to decrease sum
+        }       
+    }
+    return null; // Return null if no pair is found
+}
+
+// Example usage
+// const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+// const targetSum = 10;
+// console.log(findPairWithSum(arr, targetSum)); // Output: [1, 9] or [2, 8] or [3, 7] or [4, 6]
+
+//  ! Find Intersection of Two Arrays
+var intersection = function(nums1, nums2) {
+    
+    let set=new Set()
+    let result=[]
+    console.log(set)
+    let seen={}
+
+    for(let i=0; i<nums1.length; i++){
+        if(!seen[nums1[i]]){
+            seen[nums1[i]]=1
+        }
+    }
+
+    for(let i=0; i<nums2.length; i++){
+        if(seen[nums2[i]]){
+
+            if(!set.has(nums2[i])){
+                result.push(nums2[i])
+            }
+            set.add(nums2[i]); // Add the element to the set if it exists in nums1
+        }
+    }
+
+    return result; // Return the intersection of the two arrays
+};
+
+// Example usage
+
+console.log(intersection([1, 2, 2, 1], [2, 2])); // Output: [2]
