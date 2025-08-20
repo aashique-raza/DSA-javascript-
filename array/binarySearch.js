@@ -297,3 +297,41 @@ var intersection = function(nums1, nums2) {
 
 // console.log(intersection([1, 2, 2, 1], [2, 2])); // Output: [2]
 
+// !   Min difference between two arrays
+
+// * brute force approach
+function minDifference(arr1, arr2) {
+
+    let min= Infinity;
+
+    for (let i = 0; i < arr1.length; i++) {
+        for (let j = 0; j < arr2.length; j++) {
+            let diff = Math.abs(arr1[i] - arr2[j]);
+            min = Math.min(min, diff);
+    }
+}
+return min;
+}
+
+// console.log(minDifference([3, 2, 1], [10, 20, 30])); // Output: 7
+
+// * optimized approach using sorting and two pointers
+function minDifferenceOptimized(arr1, arr2) {
+    arr1.sort((a, b) => a - b);
+    arr2.sort((a, b) => a - b);
+    let i = 0, j = 0;
+    let minDiff = Infinity;
+    while (i < arr1.length && j < arr2.length) {
+        let diff = Math.abs(arr1[i] - arr2[j]);
+        minDiff = Math.min(minDiff, diff);  
+        if (arr1[i] < arr2[j]) {
+            i++; // Move pointer in arr1 to find a potentially smaller difference
+        }
+        else {
+            j++; // Move pointer in arr2 to find a potentially smaller difference
+        }
+    }
+    return minDiff; // Return the minimum difference found
+}
+// Example usage
+console.log(minDifferenceOptimized([3, 2, 1], [10, 20, 30])); // Output: 7
