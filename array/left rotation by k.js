@@ -17,7 +17,7 @@ function leftRotation(arr){
     return arr
 }
 
-console.log(leftRotation([1,2,3,4,5]))
+// console.log(leftRotation([1,2,3,4,5]))
 
 // ! left rotation by k
 
@@ -25,11 +25,11 @@ console.log(leftRotation([1,2,3,4,5]))
 
 function leftRotationByK(arr,k){
 
-    for(let i=0; i<1; i++){
-        let copy=arr[i-i]
+    for(let i=0; i<k; i++){
+        let copy=arr[0]
 
         for(let j=0; j<arr.length-1; j++){
-            arr[i]=arr[i+1]
+            arr[j]=arr[j+1]
         }
 
         arr[arr.length-1]=copy
@@ -37,4 +37,4 @@ function leftRotationByK(arr,k){
     return arr
 }
 
-// console.log(leftRotationByK([1,2,3,4,5,6],2))
+console.log(leftRotationByK([1,2,3,4,5],3))
