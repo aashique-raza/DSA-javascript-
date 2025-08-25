@@ -44,7 +44,7 @@ function maxSubarray2(nums,k){
     for(let i=0; i<nums.length; i++){
 
         sum=sum+nums[i]
-        console.log('sum',sum)
+      
 
         let r=sum%k
 
