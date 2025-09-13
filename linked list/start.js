@@ -277,20 +277,61 @@ console.log('length', getLength())
 
 function findInList(index) {
 
-    if(index<0 || index>=getLength()){
+    if (index < 0 || index >= getLength()) {
         return 'invalid index'
     }
-let temp=head;
-    for(let i=0;i<getLength();i++){
+    let temp = head;
+    for (let i = 0; i < getLength(); i++) {
 
-        if(i===index){
+        if (i === index) {
             return temp.data
         }
-        temp=temp.next
+        temp = temp.next
     }
 
 }
-console.log('find in list',findInList(3));
-console.log('find in list',findInList(-1));
-console.log('find in list',findInList(10));
-console.log('find in list',findInList(0));
+// console.log('find in list',findInList(3));
+// console.log('find in list',findInList(-1));
+// console.log('find in list',findInList(10));
+// console.log('find in list',findInList(0));
+
+// ! delete node from the last of linked list
+
+function deleteFromEnd() {
+
+
+    if (head == null) {
+        return 'list is empty'
+    }
+    let temp = head;
+    let lastnode = null;
+    let seconLastNode = null;
+
+    if (temp.next == null) {
+        head = null;
+    } else {
+        // traverse to the last node
+        // while (temp.next != null) {
+        //     seconLastNode = temp;
+        //     temp = temp.next;
+        // }
+        seconLastNode.next = null;
+
+        while (temp != null) {
+
+            seconLastNode = lastnode;
+            lastnode = temp;
+            temp = temp.next;
+        }
+
+
+        seconLastNode.next = null
+    }
+
+
+    length--;
+}
+
+deleteFromEnd();
+console.log('after delete from end', head);
+console.log('length after delete from end', getLength());
