@@ -46,35 +46,7 @@
 
 // !   strat again learning linked list with head
 
-class Node {
-    constructor(data) {
-        this.data = data;
-        this.next = null;
-    }
-}
 
-let head = null;
-let length = 0;  // ✅ Global length variable
-
-function insertToEnd(data) {
-    let newNode = new Node(data);
-    
-    if (head == null) {
-        head = newNode;
-    } else {
-        let current = head;
-        while(current.next != null) {  // Simplified loop
-            current = current.next;
-        }
-        current.next = newNode;
-    }
-    
-    length++;  // ✅ Increment length on every insertion
-}
-
-function getLength() {
-    return length;
-}
 
 // Test:
 // insertToEnd(10);
@@ -108,59 +80,132 @@ function getLength() {
 
 
 
-class LinkedList {
-    constructor() {
-        this.head = null;      // ✅ Head as class property
-        this.length = 0;       // ✅ Length as class property
-    }
+// class LinkedList {
+//     constructor() {
+//         this.head = null;      // ✅ Head as class property
+//         this.length = 0;       // ✅ Length as class property
+//     }
     
-    insertToEnd(data) {
-        let newNode = new Node(data);
+//     insertToEnd(data) {
+//         let newNode = new Node(data);
         
-        if (this.head === null) {
-            this.head = newNode;
-        } else {
-            let current = this.head;
-            while(current.next !== null) {
-                current = current.next;
-            }
-            current.next = newNode;
-        }
+//         if (this.head === null) {
+//             this.head = newNode;
+//         } else {
+//             let current = this.head;
+//             while(current.next !== null) {
+//                 current = current.next;
+//             }
+//             current.next = newNode;
+//         }
         
-        this.length++;  // ✅ Auto-increment length
-    }
+//         this.length++;  // ✅ Auto-increment length
+//     }
     
-    getLength() {
-        return this.length;
-    }
+//     getLength() {
+//         return this.length;
+//     }
     
-    display() {
-        if (this.head === null) {
-            console.log("List is empty");
-            return;
-        }
+//     display() {
+//         if (this.head === null) {
+//             console.log("List is empty");
+//             return;
+//         }
         
-        let result = [];
-        let current = this.head;
-        while(current) {
-            result.push(current.data);
-            current = current.next;
-        }
-        console.log("List:", result.join(' → '));
-        console.log("Length:", this.length);
+//         let result = [];
+//         let current = this.head;
+//         while(current) {
+//             result.push(current.data);
+//             current = current.next;
+//         }
+//         console.log("List:", result.join(' → '));
+//         console.log("Length:", this.length);
+//     }
+// }
+
+// // Usage:
+// let list = new LinkedList();
+
+// list.insertToEnd(10);
+// list.display();  // List: 10, Length: 1
+
+// list.insertToEnd(20);
+// list.display();  // List: 10 → 20, Length: 2
+
+// list.insertToEnd(30);
+// list.display();  // List: 10 → 20 → 30, Length: 3
+
+// console.log('Current length:', list.getLength()); // 3
+
+
+// ! using functions
+class Node {
+    constructor(data) {
+        this.data = data;
+        this.next = null;
     }
 }
 
-// Usage:
-let list = new LinkedList();
+let head = null;
+let length = 0;  // ✅ Global length variable
 
-list.insertToEnd(10);
-list.display();  // List: 10, Length: 1
+function insertToEnd(data) {
+    let newNode = new Node(data);
+    
+    if (head == null) {
+        head = newNode;
+    } else {
+        let current = head;
+        while(current.next != null) {  // Simplified loop
+            current = current.next;
+        }
+        current.next = newNode;
+    }
+    
+    length++;  // ✅ Increment length on every insertion
+}
 
-list.insertToEnd(20);
-list.display();  // List: 10 → 20, Length: 2
+function getLength() {
+    return length;
+}
 
-list.insertToEnd(30);
-list.display();  // List: 10 → 20 → 30, Length: 3
 
-console.log('Current length:', list.getLength()); // 3
+//  insert at beginning
+
+function insertAtBeginning(data) {
+
+    let newNode=new Node(data);
+
+    if(!head){
+        head=newNode;
+    }else{
+
+        let temp=head;
+        head=newNode;
+        newNode.next=temp
+    }
+
+    length++;
+}
+
+// insert at last
+insertToEnd(10)
+insertToEnd(20)
+
+console.log('head after add at the end',head);
+
+insertAtBeginning('hello')
+console.log('head after add at the beginning',head);
+
+
+console.log('Length:', getLength()); // 3
+
+//  run a for loop to print linked list
+
+for(let i=0;i<getLength();i++){
+
+    console.log('Node',i+1,':',head.data);
+    head=head.next;
+
+    
+}
