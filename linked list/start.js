@@ -332,6 +332,68 @@ function deleteFromEnd() {
     length--;
 }
 
-deleteFromEnd();
-console.log('after delete from end', head);
-console.log('length after delete from end', getLength());
+// deleteFromEnd();
+// console.log('after delete from end', head);
+// console.log('length after delete from end', getLength());
+
+
+// ! delete from beginning
+function deleteFromBeginning() {
+
+    if(head==null) return 'list is empty'
+
+    if(head.next==null){
+        head=null
+    }else{
+        let temp=head;
+        head=temp.next;
+        temp=null
+    }
+    length--;
+}
+
+// 'deleteFromBeginning();
+// console.log('after delete from beginning', head);
+// console.log('length after delete from beginning', getLength());'
+
+
+// ! delete from any position
+function deleteFromPosition(position) {
+    if (head == null) return 'list is empty';
+
+    if (position < 0 || position >= length) {
+        return 'invalid position';
+    }
+
+    // only one node
+    if (head.next == null) {
+        head = null;
+        length--;
+        return;
+    }
+
+    if (position === 0) {
+        deleteFromBeginning();
+    } 
+    else if (position === length - 1) {
+        deleteFromEnd();
+    } 
+    else {
+        let current = head;
+        let prev = null;
+
+        for (let i = 0; i < position; i++) {
+            prev = current;
+            current = current.next;
+        }
+
+        prev.next = current.next;
+        current = null;
+        length--;
+    }
+}
+
+
+deleteFromPosition(2);
+console.log('after delete from position 2', head);
+console.log('length after delete from position 2', getLength());
