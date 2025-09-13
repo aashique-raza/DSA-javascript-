@@ -85,10 +85,10 @@
 //         this.head = null;      // ✅ Head as class property
 //         this.length = 0;       // ✅ Length as class property
 //     }
-    
+
 //     insertToEnd(data) {
 //         let newNode = new Node(data);
-        
+
 //         if (this.head === null) {
 //             this.head = newNode;
 //         } else {
@@ -98,20 +98,20 @@
 //             }
 //             current.next = newNode;
 //         }
-        
+
 //         this.length++;  // ✅ Auto-increment length
 //     }
-    
+
 //     getLength() {
 //         return this.length;
 //     }
-    
+
 //     display() {
 //         if (this.head === null) {
 //             console.log("List is empty");
 //             return;
 //         }
-        
+
 //         let result = [];
 //         let current = this.head;
 //         while(current) {
@@ -151,17 +151,19 @@ let length = 0;  // ✅ Global length variable
 
 function insertToEnd(data) {
     let newNode = new Node(data);
-    
+
     if (head == null) {
+        console.log('calling if part')
         head = newNode;
     } else {
+
         let current = head;
-        while(current.next != null) {  // Simplified loop
+        while (current.next != null) {  // Simplified loop
             current = current.next;
         }
         current.next = newNode;
     }
-    
+
     length++;  // ✅ Increment length on every insertion
 }
 
@@ -174,15 +176,17 @@ function getLength() {
 
 function insertAtBeginning(data) {
 
-    let newNode=new Node(data);
+    // console.log('calling insert at beginning',data);
+    let newNode = new Node(data);
 
-    if(!head){
-        head=newNode;
-    }else{
+    if (!head) {
+        head = newNode;
+    } else {
 
-        let temp=head;
-        head=newNode;
-        newNode.next=temp
+        // console.log('calling else part')
+        let temp = head;
+        head = newNode;
+        newNode.next = temp
     }
 
     length++;
@@ -192,20 +196,78 @@ function insertAtBeginning(data) {
 insertToEnd(10)
 insertToEnd(20)
 
-console.log('head after add at the end',head);
+console.log('head after add at the end', head);
 
 insertAtBeginning('hello')
-console.log('head after add at the beginning',head);
+console.log('head after add at the beginning', head);
 
 
 console.log('Length:', getLength()); // 3
 
 //  run a for loop to print linked list
 
-for(let i=0;i<getLength();i++){
+let temp = head;
+for (let i = 0; i < getLength(); i++) {
 
-    console.log('Node',i+1,':',head.data);
-    head=head.next;
+    console.log('Node', i + 1, ':', temp.data);
+    temp = temp.next;
 
-    
+
 }
+
+
+// ! insert at any position
+
+function insertAtPosition(data, position) {
+
+    if (position < 0 || position > getLength()) {
+        return 'invalid position'
+    }
+    // console.log('calling insert at position',position);
+
+    if (position === 0) {
+        insertAtBeginning(data);
+    }
+    else if (position === getLength()) {
+        insertToEnd(data);
+    }
+    else {
+        let temp = head;
+        let prev = null;
+        // for (let i = 0; i < position - 1; i++) {
+        //     prev = prev.next;
+        // }
+        for (let i = 0; i < position; i++) {
+
+            if ((position - 1) === i) {
+                prev = temp;
+                break
+            }
+
+            temp = temp.next;
+
+        }
+
+        console.log('prev', prev);
+        let newNode = new Node(data);
+        let nextNode = prev.next;
+        prev.next = newNode;
+        newNode.next = nextNode;
+        length++;
+    }
+}
+
+
+
+insertAtPosition('end', getLength());
+console.log('insert at end', head);
+
+insertAtPosition('middle', 2);
+console.log('insert at in betwwen', head);
+
+
+insertAtPosition('start', 0);
+console.log('insert at 0', head);
+
+
+console.log('length', getLength())
