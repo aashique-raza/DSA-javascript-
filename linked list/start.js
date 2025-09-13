@@ -271,3 +271,26 @@ console.log('insert at 0', head);
 
 
 console.log('length', getLength())
+
+
+// ! find in list usig index
+
+function findInList(index) {
+
+    if(index<0 || index>=getLength()){
+        return 'invalid index'
+    }
+let temp=head;
+    for(let i=0;i<getLength();i++){
+
+        if(i===index){
+            return temp.data
+        }
+        temp=temp.next
+    }
+
+}
+console.log('find in list',findInList(3));
+console.log('find in list',findInList(-1));
+console.log('find in list',findInList(10));
+console.log('find in list',findInList(0));
