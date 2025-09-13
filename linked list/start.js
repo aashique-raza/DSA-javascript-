@@ -387,7 +387,8 @@ function deleteFromPosition(position) {
             current = current.next;
         }
 
-        prev.next = current.next;
+
+
         current = null;
         length--;
     }
