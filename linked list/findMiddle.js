@@ -31,3 +31,20 @@ function findMiddle(head) {
 
 
 console.log('middle node', findMiddle(head));
+
+// ! approach 2: use two pointers, slow and fast
+function findMiddleOptimized(head) {
+    let s=head;
+    let f=head;
+
+
+    while(  f!==null && f.next!==null){
+        s=s.next;
+        f=f.next.next;
+       
+    }
+
+    return s;
+}
+
+console.log('middle node optimized', findMiddleOptimized(head));
