@@ -57,5 +57,25 @@ function deleteMiddleNode(head) {
 }
 
 
+// console.log("Original list:", head);
+// console.log("After deleting middle node:", deleteMiddleNode(head));
+
+// * approach2: using slow and fast pointer
+function deleteMiddleNode2(head) {
+
+    let slow=head; 
+    let fast=head;
+    let prev=null;
+
+    if(head==null || head.next==null) return null; // empty list or single node
+    while(fast!==null && fast.next!==null){
+        prev=slow;
+        slow=slow.next;
+        fast=fast.next.next;
+    }
+    prev.next=slow.next; // delete middle node
+
+    return head;
+}
 console.log("Original list:", head);
-console.log("After deleting middle node:", deleteMiddleNode(head));
+console.log("After deleting middle node:", deleteMiddleNode2(head));
