@@ -78,4 +78,4 @@ function deleteMiddleNode2(head) {
     return head;
 }
 console.log("Original list:", head);
-console.log("After deleting middle node:", deleteMiddleNode2(head));
+// console.log("After deleting middle node:", deleteMiddleNode2(head));

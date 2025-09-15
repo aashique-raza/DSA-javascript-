@@ -153,7 +153,7 @@ function insertToEnd(data) {
     let newNode = new Node(data);
 
     if (head == null) {
-        console.log('calling if part')
+        // console.log('calling if part')
         head = newNode;
     } else {
 
@@ -195,21 +195,31 @@ function insertAtBeginning(data) {
 // insert at last
 insertToEnd(10)
 insertToEnd(20)
+insertToEnd(30)
+// console.log('head after add at the end', head);
+insertToEnd(40)
+insertToEnd(50)
+insertToEnd(60)
 
 console.log('head after add at the end', head);
 
-insertAtBeginning('hello')
-console.log('head after add at the beginning', head);
+console.log('head before odd even',head);
 
 
-console.log('Length:', getLength()); // 3
+
+
+// insertAtBeginning('hello')
+// console.log('head after add at the beginning', head);
+
+
+// console.log('Length:', getLength()); // 3
 
 //  run a for loop to print linked list
 
 let temp = head;
 for (let i = 0; i < getLength(); i++) {
 
-    console.log('Node', i + 1, ':', temp.data);
+    // console.log('Node', i + 1, ':', temp.data);
     temp = temp.next;
 
 
@@ -259,18 +269,18 @@ function insertAtPosition(data, position) {
 
 
 
-insertAtPosition('end', getLength());
-console.log('insert at end', head);
+// insertAtPosition('end', getLength());
+// console.log('insert at end', head);
 
-insertAtPosition('middle', 2);
-console.log('insert at in betwwen', head);
-
-
-insertAtPosition('start', 0);
-console.log('insert at 0', head);
+// insertAtPosition('middle', 2);
+// console.log('insert at in betwwen', head);
 
 
-console.log('length', getLength())
+// insertAtPosition('start', 0);
+// console.log('insert at 0', head);
+
+
+// console.log('length', getLength())
 
 
 // ! find in list usig index
@@ -395,6 +405,10 @@ function deleteFromPosition(position) {
 }
 
 
-deleteFromPosition(2);
-console.log('after delete from position 2', head);
-console.log('length after delete from position 2', getLength());
+// deleteFromPosition(2);
+// console.log('after delete from position 2', head);
+// console.log('length after delete from position 2', getLength());
+
+
+
+export { head, getLength, insertToEnd, insertAtBeginning, insertAtPosition, findInList, deleteFromEnd, deleteFromBeginning, deleteFromPosition };

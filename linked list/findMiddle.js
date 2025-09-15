@@ -1,9 +1,9 @@
 
-import { head, getLength, insertToEnd, insertAtBeginning, insertAtPosition, findInList, deleteFromEnd, deleteFromBeginning, deleteFromPosition } from './start.js'
+// import { head, getLength, insertToEnd, insertAtBeginning, insertAtPosition, findInList, deleteFromEnd, deleteFromBeginning, deleteFromPosition } from './start.js'
 
 
-console.log('head', head);
-console.log('length', getLength());
+// console.log('head', head);
+// console.log('length', getLength());
 // ! find middle of linked list
 
 //  approach 1: find length of linked list and then traverse to middle node
@@ -30,7 +30,7 @@ function findMiddle(head) {
 }
 
 
-console.log('middle node', findMiddle(head));
+// console.log('middle node', findMiddle(head));
 
 // ! approach 2: use two pointers, slow and fast
 function findMiddleOptimized(head) {
@@ -47,4 +47,4 @@ function findMiddleOptimized(head) {
     return s;
 }
 
-console.log('middle node optimized', findMiddleOptimized(head));
+// console.log('middle node optimized', findMiddleOptimized(head));
