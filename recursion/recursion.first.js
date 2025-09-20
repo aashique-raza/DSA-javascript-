@@ -8,7 +8,7 @@ function printN(n){
     return sum(n-1)
 }
 
-printN(5)
+// printN(5)
 
 
 
@@ -33,4 +33,26 @@ function print1toN(n){
     console.log(n);
     print1toN(n+1)
 }
-print1toN(1)
+// print1toN(1)
+
+
+// ! reverse astring---
+
+function reverseString(s,l,r){
+
+    if(l>=r){
+        return s
+    }
+
+    let temp=s[l]
+    s[l]=s[r]
+    s[r]=temp
+
+   return reverseString(s,l+1,r-1)
+}
+
+let s=['h','e','l','l','o']
+let l=0
+let r=s.length-1
+
+console.log('reverseString',reverseString(s,l,r));
