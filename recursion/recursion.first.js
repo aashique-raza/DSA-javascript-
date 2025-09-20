@@ -82,4 +82,17 @@ var fib = function(n) {
     return next
 };
 
+// console.log(" Fibonacci Number",fib(5));
+
+// * recursive approach
+var fib = function(n) {
+   if (n === 0) {
+        return 0;
+    }
+    if (n === 1) {
+        return 1;
+    }
+
+return fib(n - 1) + fib(n - 2);
+};
 console.log(" Fibonacci Number",fib(5));
