@@ -55,4 +55,31 @@ let s=['h','e','l','l','o']
 let l=0
 let r=s.length-1
 
-console.log('reverseString',reverseString(s,l,r));
+// console.log('reverseString',reverseString(s,l,r));
+
+
+// !  Fibonacci Number  
+
+// * iterative approach
+
+var fib = function(n) {
+    
+
+    if(n==0) return 0
+    let prev1=0
+    let prev2=1
+
+    let next=prev1+prev2
+
+    for(let i=1; i<n; i++){
+
+         next=prev1+prev2
+
+        prev1=prev2
+        prev2=next
+    }
+
+    return next
+};
+
+console.log(" Fibonacci Number",fib(5));
