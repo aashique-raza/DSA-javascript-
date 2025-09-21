@@ -435,6 +435,33 @@ console.log(safeObj); // { __proto__: 'not dangerous' }
 
 
 
+// ! compress a string ------------------------------
+
+function compressString(str) {
+     if(str.length === 0) return '';
+    let i=0;
+    let j=0;
+
+    let result=''
+
+    while(j<str.length){
+
+        if(str[i]!=str[j]){
+            let count=j-i
+            result+=str[i]
+            result+=count
+            i=j
+        }
+        j++
+    }
+    result+=str[i]
+    result+=j-i
+
+    return result
+}
+
+console.log(compressString('aabcccccaaa')); // outputs: a2b1c5a3
+console.log(compressString('abc')); // outputs: a1b1c1
 
 
 
