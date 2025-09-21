@@ -13,25 +13,25 @@ function reverseString(str) {
 // console.log(reverseString('Hello')); // outputs: dlroW olleH
 
 // * approach 2: two pointer approach
-function reverseStringTwoPointer(str){
+function reverseStringTwoPointer(str) {
 
-     // Step 1: Convert to array
+    // Step 1: Convert to array
     let arr = str.split('');
-    let i=0; 
-    let j=str.length-1;
+    let i = 0;
+    let j = str.length - 1;
 
     // console.log(str[i]);
     // console.log(str[j]);
-    while(i<j){
-        let tem=arr[j];
-       
-        arr[j]=arr[i];
-         arr[i]=tem
+    while (i < j) {
+        let tem = arr[j];
+
+        arr[j] = arr[i];
+        arr[i] = tem
         i++
         j--
     }
     return arr.join('');
-   
+
 }
 
 // test the function
@@ -43,16 +43,17 @@ function reverseStringTwoPointer(str){
 
 // * approach 1: using extra space orextra  variable
 
-function isPalindrome(str){
-    let reversedString='';
-    for(let i=str.length-1; i>=0; i--){
-        reversedString+=str[i];
+function isPalindrome(str) {
+    let reversedString = '';
+    for (let i = str.length - 1; i >= 0; i--) {
+        reversedString += str[i];
     }
-    if(reversedString===str){
-        return true;}
-        else{
+    if (reversedString === str) {
+        return true;
+    }
+    else {
         return false;
-        }
+    }
 }
 
 // console.log(isPalindrome('madam')); // outputs: true
@@ -62,34 +63,34 @@ function isPalindrome(str){
 
 function isPalindromeTwoPointer(str) {
 
-    let i=0; let j= str.length-1;
-    while(i<j){
-        if(arr[i]!==arr[j]){
+    let i = 0; let j = str.length - 1;
+    while (i < j) {
+        if (arr[i] !== arr[j]) {
             return false;
-        }else{
+        } else {
             i++
             k--
         }
     }
     return true;
-    }
+}
 
-    // console.log(isPalindromeTwoPointer('madam')); // outputs: true
-    // console.log(isPalindromeTwoPointer('hello')); // outputs: false
+// console.log(isPalindromeTwoPointer('madam')); // outputs: true
+// console.log(isPalindromeTwoPointer('hello')); // outputs: false
 
-    var isPalindrome = function(x) {
-    
-    let string=x.toString()
+var isPalindrome = function (x) {
+
+    let string = x.toString()
     console.log(string);
 
-    let i=0; let j=string.length-1;
+    let i = 0; let j = string.length - 1;
 
-    while(i<j){
+    while (i < j) {
 
-        if(string[i]!==string[j]){
+        if (string[i] !== string[j]) {
             return false
         }
-        else{
+        else {
             i++
             j--
         }
@@ -102,14 +103,14 @@ function isPalindromeTwoPointer(str) {
 
 function countVowelsAndConsonants(str) {
 
-    let vowelCount=0;
-    let consonantCount=0;
+    let vowelCount = 0;
+    let consonantCount = 0;
 
-    for(let i=0; i<str.length; i++){
+    for (let i = 0; i < str.length; i++) {
 
-        if(str[i].toLowerCase() === 'a' || str[i].toLowerCase() === 'e' || str[i].toLowerCase() === 'i' || str[i].toLowerCase() === 'o' || str[i].toLowerCase() === 'u') {
+        if (str[i].toLowerCase() === 'a' || str[i].toLowerCase() === 'e' || str[i].toLowerCase() === 'i' || str[i].toLowerCase() === 'o' || str[i].toLowerCase() === 'u') {
             vowelCount++;
-        }else{
+        } else {
             consonantCount++;
         }
     }
@@ -143,19 +144,19 @@ function countVowelsAndConsonants(str) {
 
 function mostFrequentCharacter(str) {
     let frequency = {};
-    for(let i=0; i<str.length; i++) {
-       if(frequency[str[i]]) {
+    for (let i = 0; i < str.length; i++) {
+        if (frequency[str[i]]) {
             frequency[str[i]]++;
-        }else {
+        } else {
             frequency[str[i]] = 1;
         }
     }
 
-    let maxKey=null;
-    let maxValue=0;
-    for(let ky in frequency) {
-        let value=Number(frequency[ky]);
-        if(value > maxValue) {
+    let maxKey = null;
+    let maxValue = 0;
+    for (let ky in frequency) {
+        let value = Number(frequency[ky]);
+        if (value > maxValue) {
             maxValue = value;
             maxKey = ky;
         }
@@ -167,7 +168,7 @@ function mostFrequentCharacter(str) {
 // console.log(mostFrequentCharacter('JavaScript')); // outputs: a
 
 
-let str='leetcode'
+let str = 'leetcode'
 // function firstUniqueCharacter(str) {
 //     for(let i=0; i<str.length; i++){
 
@@ -187,21 +188,21 @@ let str='leetcode'
 // console.log(firstUniqueCharacter('loveleetcode')); // outputs: 2 (index of 'v')
 // console.log(firstUniqueCharacter('aabb')); // outputs: -1 (no unique character)
 
-function firstUniqueCharacter(str){
-    let idx=0;
-    let feq={}
-    console.log('feq', feq);
+function firstUniqueCharacter(str) {
+    let idx = 0;
+    let feq = {}
+    // console.log('feq', feq);
 
-    for(let i=0; i<str.length; i++){
-        if(feq[str[i]]){
+    for (let i = 0; i < str.length; i++) {
+        if (feq[str[i]]) {
             feq[str[i]]++;
-        }else{
-            feq[str[i]]=1;
+        } else {
+            feq[str[i]] = 1;
         }
     }
-    for(let key in feq){
-        let value=Number(feq[key]);
-        if(value==1) return idx;
+    for (let key in feq) {
+        let value = Number(feq[key]);
+        if (value == 1) return idx;
         else idx++;
     }
     return -1; // if no unique character found
@@ -210,22 +211,22 @@ function firstUniqueCharacter(str){
 // console.log(firstUniqueCharacter(str)); // outputs: 0 (index of 'l')
 // console.log(firstUniqueCharacter('loveleetcode')); // outputs: 2 (index of 'v')
 // console.log(firstUniqueCharacter('aabb')); // outputs: -1 (no unique character)
-console.log(firstUniqueCharacter('dddccdbba')); // outputs: 8 (index of 'a')
+// console.log(firstUniqueCharacter('dddccdbba')); // outputs: 8 (index of 'a')
 
 // ! remove duplicate characters from a string ------------------------------
 function removeDuplicateCharacters(str) {
-   let result = '';
-   for(let i=0; i<str.length;i++){
-    for(let j=0; j<str.length; j++){
-        if(str[i]!==str[j]){
-            if(!result.includes(str[i])){
-                result+=str[i]
+    let result = '';
+    for (let i = 0; i < str.length; i++) {
+        for (let j = 0; j < str.length; j++) {
+            if (str[i] !== str[j]) {
+                if (!result.includes(str[i])) {
+                    result += str[i]
+                }
             }
         }
-   }
-}
-console.log('result', result);
-return result;
+    }
+    console.log('result', result);
+    return result;
 }
 
 // console.log(removeDuplicateCharacters('aabbbcc')); // outputs: helo
@@ -233,11 +234,11 @@ return result;
 
 // * approach 2: using Set
 function removeDuplicateCharactersSet(str) {
-    let arr=str.split('');
-    let result= new Set()
+    let arr = str.split('');
+    let result = new Set()
 
-    for(let i=0; i<arr.length; i++){
-        if(!result.has(arr[i]) ) {
+    for (let i = 0; i < arr.length; i++) {
+        if (!result.has(arr[i])) {
             result.add(arr[i]);
         }
     }
@@ -252,13 +253,13 @@ function removeDuplicateCharactersSet(str) {
 
 // ! approach 3: using a frquency object
 function removeDuplicateCharactersFrequency(str) {
-    let seen={}
-    let result=''
+    let seen = {}
+    let result = ''
 
-    for(let i=0; i<str.length; i++){
-        if(!seen[str[i]]){
-            seen[str[i]]=str[i];
-            result+=str[i];
+    for (let i = 0; i < str.length; i++) {
+        if (!seen[str[i]]) {
+            seen[str[i]] = str[i];
+            result += str[i];
         }
     }
     return result;
@@ -269,12 +270,12 @@ function removeDuplicateCharactersFrequency(str) {
 // ! reverse words in a sentence ------------------------------
 
 function reverseWordsInSentence(sentence) {
-    let arr=str.split(' ');
-    let i=0; let j=arr.length-1;
-    while(i<j){
-        let temp=arr[j];
-        arr[j]=arr[i];
-        arr[i]=temp;
+    let arr = str.split(' ');
+    let i = 0; let j = arr.length - 1;
+    while (i < j) {
+        let temp = arr[j];
+        arr[j] = arr[i];
+        arr[i] = temp;
         i++;
         j--;
     }
@@ -288,30 +289,30 @@ function reverseWordsInSentence(sentence) {
 
 // * approach 1: using brute force
 function areAnagrams(str1, str2) {
-    if(str1.length !== str2.length) return false;
-    let freq={}
+    if (str1.length !== str2.length) return false;
+    let freq = {}
 
-    for(let i=0; i<str1.length; i++) {
+    for (let i = 0; i < str1.length; i++) {
 
-       if(freq[str1[i]]) {
+        if (freq[str1[i]]) {
             freq[str1[i]]++;
-        }else {
+        } else {
             freq[str1[i]] = 1;
         }
     }
-    for(let i=0; i<str2.length; i++) {
-        if(freq[str2[i]]) {
+    for (let i = 0; i < str2.length; i++) {
+        if (freq[str2[i]]) {
             freq[str2[i]]--;
-        }else {
+        } else {
             return false;
         }
     }
-    for(let key in freq) {  
-        if(Number(freq[key]) >= 1) {
+    for (let key in freq) {
+        if (Number(freq[key]) >= 1) {
             return false;
         }
     }
-    
+
     return true;
 }
 // console.log(areAnagrams('listen', 'silent')); // outputs: true
@@ -321,18 +322,18 @@ function areAnagrams(str1, str2) {
 
 // ! check palindrome in senetnce without spaces and punctuation ------------------------------
 function isPalindromeSentence(sentence) {
-    let string=''
-    for(let i=0; i<sentence.length; i++) {
-       if(sentence[i].charCodeAt()>= 65 && sentence[i].charCodeAt() <= 90 || 
-          sentence[i].charCodeAt() >= 97 && sentence[i].charCodeAt() <= 122) {
-            string+=sentence[i].toLowerCase();
+    let string = ''
+    for (let i = 0; i < sentence.length; i++) {
+        if (sentence[i].charCodeAt() >= 65 && sentence[i].charCodeAt() <= 90 ||
+            sentence[i].charCodeAt() >= 97 && sentence[i].charCodeAt() <= 122) {
+            string += sentence[i].toLowerCase();
         }
 
     }
-    let i=0;
-    let j=string.length-1;
-    while(i<j) {
-        if(string[i] !== string[j]) {
+    let i = 0;
+    let j = string.length - 1;
+    while (i < j) {
+        if (string[i] !== string[j]) {
             return false;
         } else {
             i++;
@@ -372,3 +373,69 @@ function isPalindromeOptimized(str) {
 
     return true;
 }
+
+
+// ! longest substring wihthout repeating characters ------------------------------
+
+function lengthOfLongestSubstring(s) {
+
+    let i = 0;
+    let j = 0;
+    let max = 0;
+    let seen = new set()
+
+    while (j < s.length) {
+
+      if(seen.has(s[j])){
+        seen.delete(s[i])
+        i++
+      }
+        else{
+            seen.add(s[j])
+            j++
+            max=Math.max(max, j-i)
+        }
+
+    }
+
+    return max
+}
+
+let obj = {};
+obj[1] = "one";
+obj[true] = "yes";
+
+console.log(obj); 
+// { '1': 'one', 'true': 'yes' }
+
+// let obj = {};
+// let a = {};
+// let b = {};
+
+// obj[a] = "hello";
+// obj[b] = "world";
+
+// console.log(obj); // { '[object Object]': 'world' }
+
+let freq = {};
+freq['a'] = 0;
+
+if (freq['a']) {
+  console.log("present"); // ❌ ye print nahi hoga, kyunki 0 falsy hai
+}
+
+if ('a' in freq) console.log("present");  // sahi
+if (freq.hasOwnProperty('a')) console.log("present"); // safe
+if (freq['a'] !== undefined) console.log("present");  // chalega agar undefined store nahi karte ho
+
+let safeObj = Object.create(null);
+let a={}
+safeObj[true] = "not dangerous";
+console.log(safeObj); // { __proto__: 'not dangerous' }
+
+
+
+
+
+
+
