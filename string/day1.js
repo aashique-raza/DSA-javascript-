@@ -401,11 +401,11 @@ function lengthOfLongestSubstring(s) {
     return max
 }
 
-let obj = {};
-obj[1] = "one";
-obj[true] = "yes";
+// let obj = {};
+// obj[1] = "one";
+// obj[true] = "yes";
 
-console.log(obj); 
+// console.log(obj); 
 // { '1': 'one', 'true': 'yes' }
 
 // let obj = {};
@@ -460,8 +460,40 @@ function compressString(str) {
     return result
 }
 
-console.log(compressString('aabcccccaaa')); // outputs: a2b1c5a3
-console.log(compressString('abc')); // outputs: a1b1c1
+// console.log(compressString('aabcccccaaa')); // outputs: a2b1c5a3
+// console.log(compressString('abc')); // outputs: a1b1c1
+
+
+// Aisa asal mein kabhi hoga nahi, lekin isse khatra samajh aa jayega
+// Object.prototype.iamHiding = "Surprise!";
+
+// let frequency = { a: 2, b: 3 };
+
+// for (let key in frequency) {
+//   console.log(key, "->", frequency[key]);
+// }
+// Output:
+// a -> 2
+// b -> 3
+// iamHiding -> Surprise!  <-- YE GALAT HAI! Yeh aapke algorithm ko tod sakta hai.
+
+
+let obj = {};
+
+Object.defineProperty(obj, 'myKey', {
+  value: 100,
+  writable: false,      // Ab aap iski value nahi badal sakte
+  enumerable: true,     // Yeh loops mein dikhegi
+  configurable: false   // Aap ise delete nahi kar sakte
+});
+
+console.log(obj.myKey); // 100
+
+obj.myKey = 200; // Yeh line chupchap fail ho jayegi
+console.log(obj.myKey); // Abhi bhi 100 hai
+
+delete obj.myKey; // Yeh bhi fail ho jayega
+console.log(obj.myKey); // Abhi bhi 100 hai
 
 
 
