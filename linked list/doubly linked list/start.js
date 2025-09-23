@@ -89,6 +89,7 @@ class DoublyLinkedList {
 
         while (temp) {
             console.log('value', temp.val);
+            temp = temp.next;
         }
     }
 
@@ -138,7 +139,7 @@ class DoublyLinkedList {
 
     // delete at position
     deleteAtPosition(index) {
-        if (index < 0 || index >=this.length) {
+        if (index < 0 || index >= this.length) {
 
             return;
         }
@@ -147,7 +148,7 @@ class DoublyLinkedList {
             this.deleteAtStart();
             return
         }
-        if (index == this.length-1) {
+        if (index == this.length - 1) {
             this.deleteAtEnd();
             return
         }
@@ -163,25 +164,39 @@ class DoublyLinkedList {
     }
 
     //  reverse
-    reverse(){
-        if(this.head==null || this.head.next==null){
+    reverse() {
+        if (this.head == null || this.head.next == null) {
             return;
         }
 
-        let temp=this.head;
-        this.head=this.tail;
-        this.tail=temp;
+        let temp = this.head;
+        this.head = this.tail;
+        this.tail = temp;
 
-        let cur=this.head
+        let cur = this.head
 
-        while(cur){
-            let next=cur.next;
-            cur.next=cur.prev;
-            cur.prev=next;
-            cur=cur.next;
+        while (cur) {
+            let next = cur.next;
+            cur.next = cur.prev;
+            cur.prev = next;
+            cur = cur.next;
         }
 
         // return this
+    }
+
+    //  get by index
+    getByIndex(index) {
+
+        if (index < 0 || index >= this.length) {
+            return null;
+        }
+        let cur = this.head;
+        while (index--) {
+            cur = cur.next;
+        }
+
+        return cur.val
     }
 }
 
@@ -203,13 +218,16 @@ dll.insertAtPosition(1, 20);
 dll.insertAtPosition(1, 30);
 dll.insertAtPosition(3, 40);
 
-dll.displayBackward();
+dll.displaForward()
+// dll.displayBackward();
 // dll.deleteAtStart();
 // dll.deleteAtPosition(2);
 // console.log('after deletion');
-dll.reverse();
-console.log('after reverse');
-dll.displayBackward();
+// dll.reverse();
+// console.log('after reverse');
+// dll.displayBackward();
+
+console.log('by idx', dll.getByIndex(2));
 
 console.log('head', dll.head);
 console.log('tail', dll.tail);
