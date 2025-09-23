@@ -93,29 +93,29 @@ class DoublyLinkedList {
     }
 
     displayBackward() {
-        let temp=this.tail;
+        let temp = this.tail;
 
-        while(temp){
-            console.log('value',temp.val);
-            temp=temp.prev;
+        while (temp) {
+            console.log('value', temp.val);
+            temp = temp.prev;
         }
         // console.log('tail',this.tail);
     }
 
     //  delete at start
     deleteAtStart() {
-        if(this.head==null){
+        if (this.head == null) {
             return;
         }
-         if(this.head.next==null){
-            this.head=null;
-            this.tail=null;
+        if (this.head.next == null) {
+            this.head = null;
+            this.tail = null;
             this.length--;
             return;
         }
 
-       this. head=this.head.next;
-        this.head.prev=null;
+        this.head = this.head.next;
+        this.head.prev = null;
         this.length--;
     }
 
@@ -124,15 +124,41 @@ class DoublyLinkedList {
         if (this.head == null) {
             return;
         }
-        if(this.head.next==null){
-            this.head=null;
-            this.tail=null;
+        if (this.head.next == null) {
+            this.head = null;
+            this.tail = null;
             this.length--;
             return;
         }
 
-        this.tail=this.tail.prev;
-        this.tail.next=null;
+        this.tail = this.tail.prev;
+        this.tail.next = null;
+        this.length--;
+    }
+
+    // delete at position
+    deleteAtPosition(index) {
+        if (index < 0 || index > this.length) {
+
+            return;
+        }
+
+        if (index == 0) {
+            this.deleteAtStart();
+            return
+        }
+        if (index == this.length) {
+            this.deleteAtEnd();
+            return
+        }
+        let prev = this.head;
+        while (--index) {
+            prev = prev.next;
+        }
+
+        let toDelete = prev.next;
+        prev.next = toDelete.next;
+        toDelete.next.prev = prev;
         this.length--;
     }
 }
