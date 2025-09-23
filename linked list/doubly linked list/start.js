@@ -107,6 +107,12 @@ class DoublyLinkedList {
         if(this.head==null){
             return;
         }
+         if(this.head.next==null){
+            this.head=null;
+            this.tail=null;
+            this.length--;
+            return;
+        }
 
        this. head=this.head.next;
         this.head.prev=null;
@@ -116,6 +122,12 @@ class DoublyLinkedList {
     // delete at end
     deleteAtEnd() {
         if (this.head == null) {
+            return;
+        }
+        if(this.head.next==null){
+            this.head=null;
+            this.tail=null;
+            this.length--;
             return;
         }
 
