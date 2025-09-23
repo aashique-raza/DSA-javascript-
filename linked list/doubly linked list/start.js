@@ -138,7 +138,7 @@ class DoublyLinkedList {
 
     // delete at position
     deleteAtPosition(index) {
-        if (index < 0 || index > this.length) {
+        if (index < 0 || index >=this.length) {
 
             return;
         }
@@ -147,7 +147,7 @@ class DoublyLinkedList {
             this.deleteAtStart();
             return
         }
-        if (index == this.length) {
+        if (index == this.length-1) {
             this.deleteAtEnd();
             return
         }
@@ -183,7 +183,7 @@ dll.insertAtPosition(3, 40);
 
 dll.displayBackward();
 // dll.deleteAtStart();
-dll.deleteAtEnd();
+dll.deleteAtPosition(2);
 console.log('after deletion');
 dll.displayBackward();
 
