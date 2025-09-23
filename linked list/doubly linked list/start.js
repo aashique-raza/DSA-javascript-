@@ -34,15 +34,36 @@ console.log("Doubly Linked List");
         }
         this.length++;
     }
+
+        // insert at end (tail)
+
+        insertAtEnd(val){
+            if(this.head==null){
+                let newNode=new Node(val);
+                this.head=newNode;
+                this.tail=this.head;
+            }else{
+                let newNode=new Node(val);
+                this.tail.next=newNode;
+                newNode.prev=this.tail;
+                this.tail=newNode;
+            }
+            this.length++;
+        }
  }
 
 
-//  insert node at start
-    let dll=new DoublyLinkedList();
 
-    dll.insertAtStart(10);
-    dll.insertAtStart(20);
-    dll.insertAtStart(30);
+    let dll=new DoublyLinkedList();
+//!  insert node at start
+    // dll.insertAtStart(10);
+    // dll.insertAtStart(20);
+    // dll.insertAtStart(30);
+
+    // ! insert node at end
+    dll.insertAtEnd(10);
+    dll.insertAtEnd(20);
+    dll.insertAtEnd(30);
 
     console.log('head',dll.head);
     console.log('tail',dll.tail);
