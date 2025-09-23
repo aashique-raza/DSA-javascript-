@@ -112,6 +112,17 @@ class DoublyLinkedList {
         this.head.prev=null;
         this.length--;
     }
+
+    // delete at end
+    deleteAtEnd() {
+        if (this.head == null) {
+            return;
+        }
+
+        this.tail=this.tail.prev;
+        this.tail.next=null;
+        this.length--;
+    }
 }
 
 
@@ -133,7 +144,9 @@ dll.insertAtPosition(1, 30);
 dll.insertAtPosition(3, 40);
 
 dll.displayBackward();
-dll.deleteAtStart();
+// dll.deleteAtStart();
+dll.deleteAtEnd();
+console.log('after deletion');
 dll.displayBackward();
 
 console.log('head', dll.head);
