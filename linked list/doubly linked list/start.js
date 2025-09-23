@@ -64,24 +64,42 @@ class DoublyLinkedList {
             this.insertAtStart(val);
         }
 
-        else if(index == this.length) {
+        else if (index == this.length) {
             this.insertAtEnd(val);
         }
         else {
-        let newNode = new Node(val);
-        let current = this.head;
-        let previous;
-        while (index--) {
-            previous = current;
-            current = current.next;
-        }
+            let newNode = new Node(val);
+            let current = this.head;
+            let previous;
+            while (index--) {
+                previous = current;
+                current = current.next;
+            }
 
-        newNode.next = current;
-        current.prev = newNode;
-        previous.next = newNode;
-        newNode.prev = previous;
-        this.length++;
+            newNode.next = current;
+            current.prev = newNode;
+            previous.next = newNode;
+            newNode.prev = previous;
+            this.length++;
+        }
     }
+
+    displaForward() {
+        let temp = this.head;
+
+        while (temp) {
+            console.log('value', temp.val);
+        }
+    }
+
+    displayBackward() {
+        let temp=this.tail;
+
+        while(temp){
+            console.log('value',temp.val);
+            temp=temp.prev;
+        }
+        // console.log('tail',this.tail);
     }
 }
 
@@ -102,6 +120,8 @@ dll.insertAtPosition(0, 10);
 dll.insertAtPosition(1, 20);
 dll.insertAtPosition(1, 30);
 dll.insertAtPosition(3, 40);
+
+dll.displayBackward();
 
 console.log('head', dll.head);
 console.log('tail', dll.tail);
