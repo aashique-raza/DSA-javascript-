@@ -146,6 +146,8 @@ class Node {
     }
 }
 
+
+
 let head = null;
 let length = 0;  // ✅ Global length variable
 
