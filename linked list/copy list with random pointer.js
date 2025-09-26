@@ -43,42 +43,88 @@ console.log('head',head);
 
 //  * approach 1 using stack and map
 //  * Time O(N) | Space O(N)
+// var copyRandomList = function(head) {
+//     let curr=head;
+//     let map=new Map()
+//     let dummyHead=null;
+//     let temp=dummyHead
+
+//     while(curr){
+//         let newNode= new Node(curr.val,null,null)
+
+//         map.set(curr,newNode)
+
+
+//         if(dummyHead==null){
+//             dummyHead=newNode
+//             temp=dummyHead
+//         }else{
+//             temp.next=newNode
+//             temp=temp.next
+//         }
+
+//         curr=curr.next
+//     }
+
+//     let curr2=head
+//     let temp2=dummyHead
+
+//     while(curr2){
+        
+//         if(curr2.random==null){
+//             temp2.random=null
+//         }else{
+//             temp2.random=map.get(curr2.random)
+//         }
+//         curr2=curr2.next
+//         temp2=temp2.next
+//     }
+
+//     return dummyHead
+// };
+
+
+// * approach 2
 var copyRandomList = function(head) {
     let curr=head;
-    let map=new Map()
-    let dummyHead=null;
-    let temp=dummyHead
+   
 
     while(curr){
-        let newNode= new Node(curr.val,null,null)
-
-        map.set(curr,newNode)
-
-
-        if(dummyHead==null){
-            dummyHead=newNode
-            temp=dummyHead
-        }else{
-            temp.next=newNode
-            temp=temp.next
-        }
-
-        curr=curr.next
+        let newNode=new Node(curr.val,null,null)
+        newNode.next=curr.next
+        curr.next=newNode
+        curr=curr.next?curr.next.next:null
     }
 
-    let curr2=head
-    let temp2=dummyHead
+    let temp=head
+    let temp2=head.next
 
-    while(curr2){
-        
-        if(curr2.random==null){
+    while(temp!=null && temp2!=null){
+        if(temp.random==null){
             temp2.random=null
         }else{
-            temp2.random=map.get(curr2.random)
+            temp2.random=temp.random.next
         }
-        curr2=curr2.next
-        temp2=temp2.next
+
+        temp=temp.next?temp.next.next:null
+        temp2=temp2.next?temp2.next.next:null
     }
 
+    return head
+
+    let dummyHead=head.next
+    let cur=dummyHead
+    let cur2=head
+
+    while(cur!=null&& cur2!=null){
+        cur.next=cur.next?cur.next.next:null
+        cur2.next=cur2.next?cur2.next.next:null
+
+        cur=cur.next
+        cur2=cur2.next
+    }
+       
     return dummyHead
 };
+
+console.log('copyRandomList',copyRandomList(head));
