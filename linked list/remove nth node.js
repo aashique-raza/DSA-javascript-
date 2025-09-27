@@ -1,5 +1,5 @@
 
-console.log ('remove nt node from last')
+console.log('remove nt node from last')
 
 class Node {
     constructor(val) {
@@ -48,5 +48,35 @@ var removeNthFromEnd = function (head, n) {
     }
     prev.next = curr.next ?? null
 
+    return dummyHead.next
+};
+
+
+// ! approach 2
+
+var removeNthFromEnd = function (head, n) {
+
+    if (head == null) {
+        return null
+    }
+    let dummyHead = new ListNode(0, head)
+
+    let fast = dummyHead
+    let slow = dummyHead
+
+    while (fast.next!==null) {
+
+        if (n != 0) {
+            fast = fast.next
+
+            n--
+        } else {
+            fast = fast.next
+            slow = slow.next
+        }
+
+
+    }
+    slow.next = slow.next.next ?slow.next.next: null
     return dummyHead.next
 };
