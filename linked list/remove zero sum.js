@@ -148,3 +148,9 @@ var removeZeroSumSublists = function (head) {
 
 
 console.log('after deletion head', removeZeroSumSublists(head));
+
+
+let x=3;
+
+console.log('divide',Math.floor(x/5))
+console.log('modulas',3%5)
