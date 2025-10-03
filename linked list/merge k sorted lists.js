@@ -28,40 +28,76 @@ let list3_node2 = new Node(6)
 list3.next = list3_node2
 
 //  function to merge two sorted lists
+// function mergeTwoLists(list1, list2) {
+
+//     if(!list1) return list2
+//     if(!list2) return list1
+//     let dummyHead = new Node(0)
+//     let temp = dummyHead
+
+//     while (list1 && list2) {
+//         if (list1.val < list2.val) {
+//             temp.next = list1
+//             list1 = list1.next
+//         } else {
+//             temp.next = list2
+//             list2 = list2.next
+//         }
+//         temp = temp.next
+//     }
+//     if (list1) {
+//         temp.next = list1
+//     }
+//     if (list2) {
+//         temp.next = list2
+//     }
+//     return dummyHead.next
+// }
+
+// var mergeKLists = function (lists) {
+//     if (lists.length === 0) return null
+//     let mergedList = lists[0]
+//     for (let i = 1; i < lists.length; i++) {
+//         mergedList = mergeTwoLists(mergedList, lists[i])
+//     }
+//     return mergedList
+// }
+// let lists = [list1, list2, list3]
+// let mergedHead = mergeKLists(lists)
+// console.log("merged head", mergedHead)
+
+
+
+
+
+// approach 2: using divide and conquer
+
+function mergeKLists(lists){
+    if(lists.length===0) return null
+    return mergeHelper(lists,0,lists.length-1)
+}
+function mergeHelper(lists,s,e){
+    if(s===e) return lists[s]
+    let mid=Math.floor((s+e)/2)
+    let left=mergeHelper(lists,s,mid)
+    let right=mergeHelper(lists,mid+1,e)
+    return mergeTwoLists(left,right)
+
+}
 function mergeTwoLists(list1, list2) {
 
     if(!list1) return list2
     if(!list2) return list1
-    let dummyHead = new Node(0)
-    let temp = dummyHead
+   
+    if(list1.val<list2.val){
+        list1.next=mergeTwoLists(list1.next,list2)
+        return list1
+    }else{
+        list2.next=mergeTwoLists(list1,list2.next)
+        return list2
+    }
 
-    while (list1 && list2) {
-        if (list1.val < list2.val) {
-            temp.next = list1
-            list1 = list1.next
-        } else {
-            temp.next = list2
-            list2 = list2.next
-        }
-        temp = temp.next
-    }
-    if (list1) {
-        temp.next = list1
-    }
-    if (list2) {
-        temp.next = list2
-    }
-    return dummyHead.next
 }
-
-var mergeKLists = function (lists) {
-    if (lists.length === 0) return null
-    let mergedList = lists[0]
-    for (let i = 1; i < lists.length; i++) {
-        mergedList = mergeTwoLists(mergedList, lists[i])
-    }
-    return mergedList
-}
-let lists = [list1, list2, list3]
-let mergedHead = mergeKLists(lists)
-console.log("merged head", mergedHead)
+let lists2 = [list1, list2, list3]
+let mergedHead2 = mergeKLists(lists2)
+console.log("merged head 2", mergedHead2)
