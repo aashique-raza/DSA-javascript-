@@ -112,25 +112,25 @@ console.log(isValid(s));
 
 
 function isValid(s) {
-    let stack = []; // Array ko stack ki tarah istemal karenge
+    let stack = [];
 
     for (let char of s) {
-        // Agar character ek opening bracket hai, to use stack me push karo
+       
         if (char === '(' || char === '{' || char === '[') {
             stack.push(char);
         } 
-        // Agar character ek closing bracket hai
+      
         else if (char === ')' || char === '}' || char === ']') {
             
-            // Edge case: Agar closing bracket hai par stack khali hai, to invalid hai
+        
             if (stack.length === 0) {
                 return false;
             }
 
-            // Stack se top element nikalo
+    
             let topElement = stack.pop();
 
-            // Ab aapke logic ke anusaar if/else if se check karenge
+          
             if (char === ')') {
                 if (topElement !== '(') {
                     return false;
@@ -147,7 +147,7 @@ function isValid(s) {
         }
     }
 
-    // Loop ke baad, agar stack khali hai to string valid hai, warna invalid.
+   
     return stack.length === 0;
 }
 
