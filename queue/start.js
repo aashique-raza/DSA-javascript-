@@ -122,3 +122,62 @@ class Queue {
     }
 
 }
+
+// ! using circular array
+//
+class CircularQueue {
+    constructor(capacity){
+        this.capacity = capacity;
+        this.items = new Array(capacity);
+        this.front = -1;
+        this.rear = -1;
+        this.size = 0;
+    }
+    isFull(){
+        return this.size === this.capacity;
+    }   
+    isEmpty(){
+        return this.size === 0;
+    }
+    enqueue(value){
+        if(this.isFull()){
+            return "overflow"
+        }
+        if(this.isEmpty()){
+            this.front = 0;
+            this.rear = 0;
+            this.items[this.rear] = value;
+        }
+        else{
+            this.rear = (this.rear + 1) % this.capacity;
+            this.items[this.rear] = value;
+        }
+        this.size+=1;
+    }
+    dequeue(){
+        if(this.isEmpty()){
+            return "underflow"
+        }
+        let item = this.items[this.front];
+        this.items[this.front] = null;
+        this.front = (this.front + 1) % this.capacity;
+        this.size-=1;
+        if(this.size === 0){
+            this.front = -1;
+            this.rear = -1;
+        }
+        return item;
+    }
+    peek(){
+        if(this.isEmpty()){
+            return "underflow"
+        }
+        return this.items[this.front];
+    }
+    getSize(){
+        return this.size;
+    }
+    getCapacity(){
+        return this.capacity;
+    }
+}
