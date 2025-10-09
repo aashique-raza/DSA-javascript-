@@ -47,62 +47,85 @@ console.log("hashmap start");
 //  console.log('get mean',myHashMap.get('mean'));
 
 // ! hashmap without collision
-class HashMap {
+// class HashMap {
 
-    constructor(size){
+//     constructor(size){
 
-        this.data = new Array(size);
-    }
+//         this.data = new Array(size);
+//     }
 
-    hash(key){
-        let hash=0;
-        for(let i=0; i<key.length; i++){
-            hash = (hash + key.charCodeAt(i) ) % this.data.length;
-        }
-        return hash;
-    }
+//     hash(key){
+//         let hash=0;
+//         for(let i=0; i<key.length; i++){
+//             hash = (hash + key.charCodeAt(i) ) % this.data.length;
+//         }
+//         return hash;
+//     }
 
-    set(key , value){
+//     set(key , value){
 
-        let add= this.hash(key);
+//         let add= this.hash(key);
 
-        let existingBucket = this.data[add];
+//         let existingBucket = this.data[add];
 
-        if(existingBucket){
-            this.data[add].push([key, value]);
-        }else{
-            this.data[add] = [];
-            this.data[add].push([key, value]);
-        }
+//         if(existingBucket){
+//             this.data[add].push([key, value]);
+//         }else{
+//             this.data[add] = [];
+//             this.data[add].push([key, value]);
+//         }
        
-    }
+//     }
 
-    get(key){
-        let add = this.hash(key);
-       let items= this.data[add];
-       if(items){
-        for(let i=0; i<items.length; i++){
-           let [k, v] = items[i];
-           if(k === key){
-            return v;
-           }
-        }
-       }
-         return undefined;
-    }
+//     get(key){
+//         let add = this.hash(key);
+//        let items= this.data[add];
+//        if(items){
+//         for(let i=0; i<items.length; i++){
+//            let [k, v] = items[i];
+//            if(k === key){
+//             return v;
+//            }
+//         }
+//        }
+//          return undefined;
+//     }
 
     
-}
+// }
 
-let myHashMap = new HashMap(50);
-console.log('myhashmap',myHashMap);
-console.log(417%50);
-console.log('hash for name',myHashMap.hash('name'));
+// let myHashMap = new HashMap(50);
+// console.log('myhashmap',myHashMap);
+// console.log(417%50);
+// console.log('hash for name',myHashMap.hash('name'));
 
-myHashMap.set('name', 'john');
-myHashMap.set('age', 23);
-console.log('myhashmap after set',myHashMap);
+// myHashMap.set('name', 'john');
+// myHashMap.set('age', 23);
+// console.log('myhashmap after set',myHashMap);
 
-// check collision
-    myHashMap.set('mean', 'doe');
-    console.log('get mean',myHashMap.get('mean'));
+// // check collision
+//     myHashMap.set('mean', 'doe');
+//     console.log('get mean',myHashMap.get('mean'));
+
+
+
+// ! plain object as hashmap
+
+let myHashMap = {};
+
+// console.log('myhashmap',myHashMap);
+// myHashMap['name'] = 'john';
+// myHashMap['age'] = 23;
+// console.log('myhashmap after set',myHashMap);
+// myHashMap['mean'] = 'doe';
+// console.log('get mean',myHashMap['mean']);
+
+// ! map as hashmap
+
+let myMap = new Map();
+console.log('myMap',myMap);
+myMap.set('name', 'john');
+myMap.set('age', 23);
+console.log('myMap after set',myMap);
+myMap.set('mean', 'doe');
+console.log('get mean',myMap.get('mean'));
