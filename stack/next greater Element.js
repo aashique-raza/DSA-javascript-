@@ -69,35 +69,58 @@ console.log('nextGreaterElement',nextGreaterElement(arr));
  * @param {number[]} nums2
  * @return {number[]}
  */
-var nextGreaterElement = function(nums1, nums2) {
-   
-    const stack = []; 
-    
-    
-    const nextGreaterMap = new Map();
+// var nextGreaterElement = function(nums1, nums2) {
 
    
-    for (let i = 0; i < nums2.length; i++) {
+//     const stack = []; 
+    
+    
+//     const nextGreaterMap = new Map();
+
+   
+//     for (let i = 0; i < nums2.length; i++) {
         
-        while (stack.length > 0 && nums2[i] > nums2[stack[stack.length - 1]]) {
-            let resolvedIndex = stack.pop();
-            let number = nums2[resolvedIndex];
-            let itsNextGreater = nums2[i];
+//         while (stack.length > 0 && nums2[i] > nums2[stack[stack.length - 1]]) {
+//             let resolvedIndex = stack.pop();
+//             let number = nums2[resolvedIndex];
+//             let itsNextGreater = nums2[i];
             
          
-            nextGreaterMap.set(number, itsNextGreater);
-        }
+//             nextGreaterMap.set(number, itsNextGreater);
+//         }
        
-        stack.push(i);
-    }
+//         stack.push(i);
+//     }
     
 
-    const result = [];
-    for (const num of nums1) {
+//     const result = [];
+//     for (const num of nums1) {
       
 
-        result.push(nextGreaterMap.get(num) || -1);
-    }
+//         result.push(nextGreaterMap.get(num) || -1);
+//     }
     
-    return result;
-};
+//     return result;
+// };
+
+//  ! again next greater element
+
+function nextGreaterElement1(nums1,nums2) {
+
+    let result=[]
+    let stack=[]
+
+    for(let i=0; i<nums2.length; i++){
+
+        while(stack.length>0 && nums2[i]>nums2[stack.length-1]){
+            map.set(nums2[stack.pop()], nums2[i])
+
+        }
+
+        stack.push(i)
+    }
+
+    for(let num of nums1){
+        result.push(map.get(num) || -1)
+    }
+}
