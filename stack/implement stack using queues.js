@@ -40,3 +40,45 @@ class MyStack {
 }
 
 let myStack = new MyStack();
+
+
+var MyStack = function() {
+    this.q=new Queue()
+};
+
+/** 
+ * @param {number} x
+ * @return {void}
+ */
+MyStack.prototype.push = function(x) {
+     this.q.enqueue(x)
+};
+
+/**
+ * @return {number}
+ */
+MyStack.prototype.pop = function() {
+    for(let i=0; i< this.q.size()-1; i++){
+         this.q.enqueue( this.q.dequeue())
+    }
+    return  this.q.dequeue()
+};
+
+/**
+ * @return {number}
+ */
+MyStack.prototype.top = function() {
+    for(let i=0; i< this.q.size()-1; i++){
+         this.q.enqueue( this.q.dequeue())
+    }
+    let value=this.q.dequeue()
+     this.q.enqueue(value)
+     return value;
+};
+
+/**
+ * @return {boolean}
+ */
+MyStack.prototype.empty = function() {
+   return  this.q.isEmpty()
+};
