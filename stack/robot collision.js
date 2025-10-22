@@ -11,6 +11,7 @@ var survivedRobotsHealths = function(positions, healths, directions) {
     }
     robots.sort((a, b) => a.position - b.position);
 
+    console.log('robots',robots);
     const stack = [];
     for (const robot of robots) {
         if (robot.direction === 'R') {
