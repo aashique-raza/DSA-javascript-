@@ -24,8 +24,8 @@ function maximumLen(nums) {
         } else {
             let prevPos = posLen
             let prevNeg = negLen
-            posLen=prevNeg>0? prevNeg+1:0
-          
+            posLen = prevNeg > 0 ? prevNeg + 1 : 0
+
             negLen = prevPos + 1
         }
 
@@ -36,6 +36,8 @@ function maximumLen(nums) {
     return maxLen
 }
 
-console.log(maximumLen([0, 1, -2, -3, -4]))
-console.log(maximumLen([-1, -2, -3, 0, 1]))
-console.log(maximumLen([-1, 2]))
+// console.log(maximumLen([0, 1, -2, -3, -4]))
+// console.log(maximumLen([-1, -2, -3, 0, 1]))
+// console.log(maximumLen([-1, 2]))
+
+
