@@ -90,4 +90,72 @@ console.log(trapWater2([0,1,0,2,1,0,1,3,2,1,2,1]))
 console.log(trapWater2([4,2,0,3,2,5]))
 
 
+// !  trapping rain water
+
+function findLeftMax(height) {
+    let leftMax = new Array(height.length).fill(0)
+    let stack = []
+    for (let i = 0; i < height.length; i++) {
+
+        if (stack.length == 0) {
+            stack.push(i)
+        } else {
+            let el = height[i]
+            let top = height[stack[stack.length - 1]]
+            if (el < top) {
+                leftMax[i] = top
+
+            } else {
+                stack.push(i)
+            }
+
+        }
+
+    }
+    return leftMax
+}
+function findRightMax(height) {
+    let rightMax = new Array(height.length).fill(0)
+    let stack = []
+    for (let i = height.length - 1; i >= 0; i--) {
+
+        if (stack.length == 0) {
+            stack.push(i)
+        }
+        else {
+            let el = height[i]
+            let top = height[stack[stack.length - 1]]
+            if (el < top) {
+                rightMax[i] = top
+            } else {
+                stack.push(i)
+            }
+        }
+
+    }
+    return rightMax
+}
+function trap(height) {
+
+    let leftmax = findLeftMax(height)
+    console.log('leftmax', leftmax)
+    let rightmax = findRightMax(height)
+    console.log('rightmax', rightmax)
+
+    let water = 0
+    for (let i = 0; i < height.length; i++) {
+        let minHeight = Math.min(leftmax[i], rightmax[i])
+        if (minHeight > height[i]) {
+            water += minHeight - height[i]
+        }
+    }
+    console.log('water', water)
+    return water
+}
+
+trap([4, 2, 0, 3, 2, 5])
+
+
+
+
 
