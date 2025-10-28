@@ -30,3 +30,23 @@ head.next = new Node(2);
 head.next.next = new Node(3);
 head.next.next.next = new Node(4);
 head.next.next.next.next = head.next; // Creating a cycle for testing   
+
+var detectCycle = function (head) {
+
+    let curr = head;
+    
+
+    let map = new Map()
+
+    while (curr) {
+        if (map.has(curr)) {
+            let add = map.get(curr)
+            return add
+        } else {
+            map.set(curr, curr)
+        }
+        
+        curr = curr.next
+    }
+    return null
+}
