@@ -1,4 +1,76 @@
-console.log('recursion.first.js');
+
+// ! recursion.first.js
+
+//   start with basic  to understand recursion--
+
+// function birth3(day){
+//     console.log(`${day} days left for birthday`);
+// }
+// function birth2(day){
+//     console.log(`${day} days left for birthday`);
+// }
+// function birth1(day){
+//     console.log(`${day} days left for birthday`);
+// }
+
+// function birth(day){
+//     console.log("happy birthday to you");
+// }
+
+// birth3(3)
+// birth2(2)
+// birth1(1)
+// birth(0)
+
+//  more optimized ---
+
+// function birth3(day){
+//     console.log(`${day} days left for birthday`);
+//     birth2(day-1)
+// }
+// function birth2(day){
+//     console.log(`${day} days left for birthday`);
+//     birth1(day-1)
+// }
+// function birth1(day){
+//     console.log(`${day} days left for birthday`);
+//     birth(day-1)
+// }
+
+// function birth(day){
+//     console.log("happy birthday to you");
+// }
+
+// birth3(3)
+
+// more optimized using recursion ---
+
+// function birth(day){
+// console.log(`${day} days left for birthday`);
+//     birth(day-1)
+// }
+// birth(3)
+
+// ! now this is complete recursion--
+
+function birth(day){
+    if(day==0){
+        console.log("happy birthday to you");
+        return
+    }
+    console.log(`${day} days left for birthday`);
+    birth(day-1)
+}
+birth(3)
+
+
+
+
+
+
+
+
+// console.log('recursion.first.js');
 
 function printN(n){
     if(n==0){
@@ -21,7 +93,7 @@ function sum(n){
     return n + sum(n-1)
 }
 
-console.log('sum',sum(5));
+// console.log('sum',sum(5));
 
 
 
@@ -95,4 +167,4 @@ var fib = function(n) {
 
 return fib(n - 1) + fib(n - 2);
 };
-console.log(" Fibonacci Number",fib(5));
+// console.log(" Fibonacci Number",fib(5));
