@@ -58,7 +58,7 @@ function birth(day){
         console.log("happy birthday to you");
         return
     }
-    console.log(`${day} days left for birthday`);
+    console.log(`${day} days left for birthda`);
     birth(day-1)
 }
 birth(3)
