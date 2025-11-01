@@ -168,3 +168,16 @@ var fib = function(n) {
 return fib(n - 1) + fib(n - 2);
 };
 // console.log(" Fibonacci Number",fib(5));
+
+
+// ! print even numbers till n using recursion
+
+function printEven(n){
+
+    if(n==0) return
+    printEven(n-1)
+    if(n%2==0){
+        console.log(n);
+    }
+}
+printEven(9)
