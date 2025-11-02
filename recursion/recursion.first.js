@@ -190,3 +190,12 @@ function power(n,p){
     return n*power(n,p-1)
 }
 console.log('power',power(2,3));
+
+// ! sum of square of n natural numbers
+
+function sumSquare(n){
+
+    if(n==0) return 0
+    return n*n + sumSquare(n-1)
+}
+console.log('sumSquare',sumSquare(3));
