@@ -199,3 +199,11 @@ function sumSquare(n){
     return n*n + sumSquare(n-1)
 }
 console.log('sumSquare',sumSquare(3));
+
+// ! nth stair
+function nthStair(n){
+
+    if(n<=1) return 1
+    return nthStair(n-1) + nthStair(n-2)
+}
+// console.log('nthStair',nthStair(4));
