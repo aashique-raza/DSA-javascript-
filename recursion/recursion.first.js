@@ -181,3 +181,12 @@ function printEven(n){
     }
 }
 printEven(9)
+
+
+// ! find power of n
+
+function power(n,p){
+    if(p==1) return n
+    return n*power(n,p-1)
+}
+console.log('power',power(2,3));
