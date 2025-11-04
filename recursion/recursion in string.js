@@ -66,4 +66,13 @@ function reverseString(str, index = str.length - 1  ){
     }
     return str[index] + reverseString(str, index - 1);
 } 
+// !  reverse string using recursion way 2
+function reverseStringWay2(str, index = 0) {
+    if(index >= str.length) {
+        return "";
+    }
+    return reverseStringWay2(str, index + 1) + str[index];
+}
+
+
 // Example usage:
