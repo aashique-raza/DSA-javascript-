@@ -15,7 +15,7 @@ function printArrayElements(arr, index = 0) {
 
 // Example usage:
 const myArray = [10, 20, 30, 40, 50];
-printArrayElements(myArray);
+// printArrayElements(myArray);
 
 //  print array reverse using recursion
 function printArrayReverse(arr, index = arr.length - 1) {
@@ -27,7 +27,7 @@ function printArrayReverse(arr, index = arr.length - 1) {
     printArrayReverse(arr, index - 1); 
 }
 // Example usage:
-printArrayReverse(myArray);
+// printArrayReverse(myArray);
 
 
 // print array reverse using recursion  way 2 
@@ -41,4 +41,19 @@ function printArrayReverseWay2(arr, index = 0) {
     console.log(arr[index]);
 }
 // Example usage:
-printArrayReverseWay2(myArray);
+// printArrayReverseWay2(myArray);
+
+
+// ! sum of array elements using recursion
+
+function sumOfArrayElements(arr, index = 0) {
+
+    if(index >= arr.length) {
+        return 0;
+    }
+    return arr[index] + sumOfArrayElements(arr, index + 1);
+}
+// Example usage:
+const sum = sumOfArrayElements(myArray);
+console.log("Sum of array elements:", sum);
+
