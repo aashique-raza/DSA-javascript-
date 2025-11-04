@@ -54,8 +54,8 @@ function sumOfArrayElements(arr, index = 0) {
     return arr[index] + sumOfArrayElements(arr, index + 1);
 }
 // Example usage:
-const sum = sumOfArrayElements(myArray);
-console.log("Sum of array elements:", sum);
+// const sum = sumOfArrayElements(myArray);
+// console.log("Sum of array elements:", sum);
 
 // !  sum of array elements using recursion way 2
 
@@ -66,3 +66,17 @@ function sumOfArrayElementsWay2(arr, index = arr.length - 1) {
     return arr[index] + sumOfArrayElementsWay2(arr, index - 1);
 }
 
+
+// ! find min element in array using recursion
+
+function findMinInArray(arr, index = 0) {
+
+    if(index>=arr.length){
+        return Infinity;
+    }
+
+    return Math.min(arr[index], findMinInArray(arr, index + 1));
+}
+// Example usage:
+const minElement = findMinInArray(myArray);
+console.log("Minimum element in array:", minElement);
