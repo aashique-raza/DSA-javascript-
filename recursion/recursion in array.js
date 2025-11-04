@@ -57,3 +57,12 @@ function sumOfArrayElements(arr, index = 0) {
 const sum = sumOfArrayElements(myArray);
 console.log("Sum of array elements:", sum);
 
+// !  sum of array elements using recursion way 2
+
+function sumOfArrayElementsWay2(arr, index = arr.length - 1) {  
+    if(index < 0) {
+        return 0;
+    }
+    return arr[index] + sumOfArrayElementsWay2(arr, index - 1);
+}
+
