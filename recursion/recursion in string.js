@@ -59,20 +59,38 @@ function countConsonants(str, index = 0) {
 
 // ! reverse string using recursion way 1
 
-function reverseString(str, index = str.length - 1  ){
+// function reverseString(str, index = str.length - 1  ){
 
-    if(index < 0) {
-        return "";
-    }
-    return str[index] + reverseString(str, index - 1);
-} 
+//     if(index < 0) {
+//         return "";
+//     }
+//     return str[index] + reverseString(str, index - 1);
+// } 
 // !  reverse string using recursion way 2
-function reverseStringWay2(str, index = 0) {
-    if(index >= str.length) {
-        return "";
+// function reverseStringWay2(str, index = 0) {
+//     if(index >= str.length) {
+//         return "";
+//     }
+//     return reverseStringWay2(str, index + 1) + str[index];
+// }
+// !  reverse string using recursion way 3 using two pointers
+function reverseStringWay3(strArr, left = 0, right = strArr.length - 1) {
+    if(left >= right) {
+        return;
     }
-    return reverseStringWay2(str, index + 1) + str[index];
+
+    // swap characters
+    const temp = strArr[left];
+    strArr[left] = strArr[right];
+    strArr[right] = temp;
+    reverseStringWay3(strArr, left + 1, right - 1);
+    return strArr.join('');
 }
 
-
 // Example usage:
+const myString = "Hello World";
+const reversedString = reverseStringWay3(myString.split(''));
+console.log(`Reversed string of "${myString}":`, reversedString);
+
+
+
