@@ -28,3 +28,17 @@ function printArrayReverse(arr, index = arr.length - 1) {
 }
 // Example usage:
 printArrayReverse(myArray);
+
+
+// print array reverse using recursion  way 2 
+
+function printArrayReverseWay2(arr, index = 0) {
+  // base case
+  if (index >= arr.length) {
+    return;
+  }
+    printArrayReverseWay2(arr, index + 1); 
+    console.log(arr[index]);
+}
+// Example usage:
+printArrayReverseWay2(myArray);
