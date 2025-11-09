@@ -152,3 +152,25 @@ function findEvenNumbers(arr, index = 0, evens = []) {
 // Example usage:
 // const evenNumbers = findEvenNumbers(myArray);
 // console.log("Even numbers in array:", evenNumbers);
+
+// ! find last occurrence of element in array using recursion
+
+function lastO(arr,i=0,target){
+    if(i==arr.length){
+        return -1;
+    }
+
+    let result=lastO(arr,i+1,target);
+
+    if(result!=-1){
+        return result;
+    }
+    if(arr[i]==target){
+        return i;
+    }
+    return -1;
+}
+// Example usage:
+// const targetForLastO = 20;
+// const lastIndex = lastO(myArray,0,targetForLastO);
+// console.log(`Last occurrence of element ${targetForLastO} is at index:`, lastIndex);
