@@ -80,3 +80,22 @@ function findMinInArray(arr, index = 0) {
 // Example usage:
 const minElement = findMinInArray(myArray);
 console.log("Minimum element in array:", minElement);
+
+
+// ! check array is sorted using recursion
+
+function isArraySorted(arr, index = 0) {  
+    if(index >= arr.length - 1) {
+        return true;
+    } 
+
+    if(arr[index] > arr[index + 1]) {
+        return false;
+    }
+    return isArraySorted(arr, index + 1);
+}
+// Example usage:
+const sortedArray = [10, 20, 30, 40, 50];
+const unsortedArray = [10, 30, 20, 40, 50];
+// console.log("Is sortedArray sorted?", isArraySorted(sortedArray)); // true
+// console.log("Is unsortedArray sorted?", isArraySorted(unsortedArray)); // false
