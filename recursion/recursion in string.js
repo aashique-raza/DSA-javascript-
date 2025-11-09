@@ -137,3 +137,18 @@ function removeCharacter(str, charToRemove, index = 0) {
 // const charToRemove = "o";
 // const resultString = removeCharacter(myString, charToRemove);
 // console.log(`String after removing '${charToRemove}' from "${myString}":`, resultString);
+
+
+// ! replace character in string using recursion
+
+function replaceCharacter(str, charToReplace, newChar, index = 0) {
+    if(index >= str.length) {
+        return "";
+    }
+
+    return (str[index] === charToReplace ? newChar : str[index]) + replaceCharacter(str, charToReplace, newChar, index + 1);
+}
+
+// Example usage:
+// const myString = "Hello World";
+// const charToReplace = "o";
