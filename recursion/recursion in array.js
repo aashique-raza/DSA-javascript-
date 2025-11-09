@@ -99,3 +99,19 @@ const sortedArray = [10, 20, 30, 40, 50];
 const unsortedArray = [10, 30, 20, 40, 50];
 // console.log("Is sortedArray sorted?", isArraySorted(sortedArray)); // true
 // console.log("Is unsortedArray sorted?", isArraySorted(unsortedArray)); // false
+
+// ! linear search in array using recursion
+
+function linearSearch(arr, target, index = 0) {  
+    if(index >= arr.length) {
+        return -1; // not found
+    }
+    if(arr[index] === target) {
+        return index; // found
+    }
+    return linearSearch(arr, target, index + 1);
+}
+// Example usage:
+const target = 30;
+const foundIndex = linearSearch(myArray, target);
+// console.log(`Element ${target} found at index:`, foundIndex);
