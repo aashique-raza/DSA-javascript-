@@ -163,3 +163,17 @@ function stringToInteger(str, index = 0 ,num=0) {
     return stringToInteger(str, index + 1, num);
 }
 // const newChar = "0101";
+
+// ! count occurrences of a character in string using recursion
+function countCharacterOccurrences(str, charToCount, index = 0) {
+    if(index >= str.length) {
+        return 0;
+    }
+
+    return str[index]==charToCount?1:0 + countCharacterOccurrences(str, charToCount, index + 1);
+}
+// Example usage:
+// const myString = "Hello World";
+// const charToCount = "o";
+// const count = countCharacterOccurrences(myString, charToCount);
+// console.log(`Number of occurrences of '${charToCount}' in "${myString}":`, count);
