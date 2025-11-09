@@ -122,3 +122,18 @@ function stringLength(str, index = 0) {
 // const myString = "Hello World";
 // const length = stringLength(myString);
 // console.log(`Length of string "${myString}":`, length);
+
+
+// ! remove a specific character from string using recursion
+
+function removeCharacter(str, charToRemove, index = 0) {    
+    if(index >= str.length) {
+        return "";
+    }
+    return (str[index] === charToRemove ? "" : str[index]) + removeCharacter(str, charToRemove, index + 1);
+}
+// Example usage:
+// const myString = "Hello World";
+// const charToRemove = "o";
+// const resultString = removeCharacter(myString, charToRemove);
+// console.log(`String after removing '${charToRemove}' from "${myString}":`, resultString);
