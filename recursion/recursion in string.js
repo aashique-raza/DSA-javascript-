@@ -177,3 +177,21 @@ function countCharacterOccurrences(str, charToCount, index = 0) {
 // const charToCount = "o";
 // const count = countCharacterOccurrences(myString, charToCount);
 // console.log(`Number of occurrences of '${charToCount}' in "${myString}":`, count);
+
+// ! remove consecutive duplicates from string using recursion
+
+function removeConsecutiveDuplicates(str, index = 0,map=new Map()) {
+    if(index >= str.length) {
+        return "";
+    }
+    if(!map.has(str[index])){
+        map.set(str[index],1);
+        return str[index] + removeConsecutiveDuplicates(str, index + 1,map);
+    }
+    else{
+        return removeConsecutiveDuplicates(str, index + 1,map);
+    }   
+}
+// Example usage:
+// const myString
+  
