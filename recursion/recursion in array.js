@@ -115,3 +115,26 @@ function linearSearch(arr, target, index = 0) {
 const target = 30;
 const foundIndex = linearSearch(myArray, target);
 // console.log(`Element ${target} found at index:`, foundIndex);
+
+// ! binary search in array using recursion
+
+function binarySearch(arr, target, left = 0, right = arr.length - 1) {
+    if(left > right) {
+        return -1; // not found
+    } 
+    const mid = Math.floor((left + right) / 2);
+    if(arr[mid] === target) {
+        return mid; // found
+    } 
+    else if(arr[mid] < target) {
+        return binarySearch(arr, target, mid + 1, right);
+    } 
+    else {
+        return binarySearch(arr, target, left, mid - 1);
+    } 
+}
+// Example usage:
+// const sortedArrayForBinarySearch = [10, 20, 30, 40, 50];
+// const targetForBinarySearch = 40;
+// const foundIndexBinary = binarySearch(sortedArrayForBinarySearch, targetForBinarySearch);
+// console.log(`Element ${targetForBinarySearch} found at index:`, foundIndexBinary);
