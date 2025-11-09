@@ -138,3 +138,17 @@ function binarySearch(arr, target, left = 0, right = arr.length - 1) {
 // const targetForBinarySearch = 40;
 // const foundIndexBinary = binarySearch(sortedArrayForBinarySearch, targetForBinarySearch);
 // console.log(`Element ${targetForBinarySearch} found at index:`, foundIndexBinary);
+
+// ! find even numbers in array using recursion
+function findEvenNumbers(arr, index = 0, evens = []) {  
+    if(index >= arr.length) {
+        return evens;
+    } 
+    if(arr[index] % 2 === 0) {
+        evens.push(arr[index]);
+    }
+    return findEvenNumbers(arr, index + 1, evens);
+}
+// Example usage:
+// const evenNumbers = findEvenNumbers(myArray);
+// console.log("Even numbers in array:", evenNumbers);
