@@ -152,3 +152,14 @@ function replaceCharacter(str, charToReplace, newChar, index = 0) {
 // Example usage:
 // const myString = "Hello World";
 // const charToReplace = "o";
+
+
+//  ! string to integer using recursion
+function stringToInteger(str, index = 0 ,num=0) {
+    if(i>=str.length) {
+        return num;
+    }
+    num=num*10+str[i]
+    return stringToInteger(str, index + 1, num);
+}
+// const newChar = "0101";
