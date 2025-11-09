@@ -88,9 +88,37 @@ function reverseStringWay3(strArr, left = 0, right = strArr.length - 1) {
 }
 
 // Example usage:
-const myString = "Hello World";
-const reversedString = reverseStringWay3(myString.split(''));
-console.log(`Reversed string of "${myString}":`, reversedString);
+// const myString = "Hello World";
+// const reversedString = reverseStringWay3(myString.split(''));
+// console.log(`Reversed string of "${myString}":`, reversedString);
+
+// ! lowercase to uppercase using recursion
+function toUpperCase(str, index = 0) {
+
+    if(index >= str.length) {
+        return "";
+    }
+   
+   return str[index].toUpperCase() + toUpperCase(str, index + 1)  ;
+
+}
+// Example usage:
+const myString = "hello world";
+const upperCaseString = toUpperCase(myString);
+console.log(`Uppercase string of "${myString}":`, upperCaseString);
 
 
 
+
+// ! find thelength of string using recursion
+
+function stringLength(str, index = 0) {
+    if(index >= str.length) {
+        return 0;
+    }
+    return 1 + stringLength(str, index + 1);
+}
+// Example usage:
+// const myString = "Hello World";
+// const length = stringLength(myString);
+// console.log(`Length of string "${myString}":`, length);
