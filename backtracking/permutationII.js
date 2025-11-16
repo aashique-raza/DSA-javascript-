@@ -27,3 +27,38 @@ var permuteUnique = function(nums,temp=[],result=[],visit=new Array(nums.length)
     }
     return result
 };
+
+
+// ! more optimized
+var permuteUnique = function(nums) {
+   let result=[]
+   let temp=[]
+   let map={}
+   for(let i=0; i<nums.length;i++){
+    if(map.hasOwnProperty(nums[i])){
+        map[nums[i]]++
+    }else{
+        map[nums[i]]=1
+    }
+   }
+   solve(nums,temp,result,map)
+    return result
+};
+
+function solve(nums,temp,result,map){
+
+    if(nums.length==temp.length){
+        result.push([...temp])
+        return
+    }
+
+    for(let num in map){
+        if(map[num]==0) continue
+
+        temp.push(Number(num));
+        map[num]--
+        solve (nums,temp,result,map)
+        temp.pop()
+        map[num]++
+    }
+}
