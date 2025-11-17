@@ -43,6 +43,32 @@ class BinaryTree{
             }
         }
     }
+
+    search(searchVal){
+        if(this.root==null){
+            return false
+        }
+
+        let queue=[this.root]
+
+        while(queue.length>0){
+            let curr=queue.shift()
+
+            if(curr.val===searchVal){
+                return true
+            }
+
+            if(curr.left){
+                queue.push(curr.left)
+            }
+            if(curr.right){
+                queue.push(curr.right)
+            }
+        }
+        return false
+    }
+
+   
 }
 
 let binaryTree=new BinaryTree()
@@ -55,3 +81,5 @@ binaryTree.add(60)
 binaryTree.add(70)
 
 console.log("root",root)
+
+console.log('serach',binaryTree.search(70))
