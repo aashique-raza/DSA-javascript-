@@ -80,6 +80,16 @@ class BinaryTree{
         return this.searchVal(search, root.left) || this.searchVal(search, root.right);
     }
 
+    traverse(root=this.root){
+        if(root==null){
+            return
+        }
+        console.log(root.val)
+        this.traverse(root.left)
+        this.traverse(root.right)
+    }
+    
+
    
 }
 
@@ -95,3 +105,5 @@ binaryTree.add(70)
 console.log("root",root)
 
 console.log('serach',binaryTree.searchVal(700))
+
+binaryTree.traverse()
