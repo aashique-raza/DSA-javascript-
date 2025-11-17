@@ -68,6 +68,18 @@ class BinaryTree{
         return false
     }
 
+     searchVal(search,root=this.root){
+
+        if(root==null ){
+            return false
+        }
+        if(root.val==search){
+            return true
+        }
+
+        return this.searchVal(search, root.left) || this.searchVal(search, root.right);
+    }
+
    
 }
 
@@ -82,4 +94,4 @@ binaryTree.add(70)
 
 console.log("root",root)
 
-console.log('serach',binaryTree.search(70))
+console.log('serach',binaryTree.searchVal(700))
