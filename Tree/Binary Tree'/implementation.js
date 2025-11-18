@@ -80,15 +80,19 @@ class BinaryTree{
         return this.searchVal(search, root.left) || this.searchVal(search, root.right);
     }
 
-    traverse(root=this.root){
+    preOrder(root=this.root){
         if(root==null){
             return
         }
         console.log(root.val)
-        this.traverse(root.left)
-        this.traverse(root.right)
+        this.preOrder(root.left)
+        this.preOrder(root.right)
     }
+
+   
+
     
+
 
    
 }
@@ -106,4 +110,5 @@ console.log("root",root)
 
 console.log('serach',binaryTree.searchVal(700))
 
-binaryTree.traverse()
+// binaryTree.preOrder()
+binaryTree.inOrder()
