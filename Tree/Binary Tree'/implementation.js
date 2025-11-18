@@ -104,6 +104,22 @@ class BinaryTree{
         this.postOrder(root.right)
         console.log(root.val)
     }
+
+    // BFS traversal(level order)
+
+    levelOrder(){
+        if(this.root==null) return
+
+        let queue=[this.root]
+
+        while(queue.length>0){
+            let curr=queue.shift()
+            console.log(curr.val)
+
+            if(curr.left!=null) queue.push(curr.left);
+            if(curr.right!=null) queue.push(curr.right)  ;  
+        }
+    }
    
 
     
@@ -127,4 +143,5 @@ console.log('serach',binaryTree.searchVal(700))
 
 // binaryTree.preOrder()
 // binaryTree.inOrder()
-binaryTree.postOrder()
+// binaryTree.postOrder()
+binaryTree.levelOrder()
