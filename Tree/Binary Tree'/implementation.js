@@ -89,6 +89,13 @@ class BinaryTree{
         this.preOrder(root.right)
     }
 
+     inOrder(root=this.root){
+        if(root==null) return
+
+        this.inOrder(root.left)
+        console.log(root.val)
+        this.inOrder(root.right)
+    }
    
 
     
