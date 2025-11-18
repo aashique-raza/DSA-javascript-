@@ -96,6 +96,14 @@ class BinaryTree{
         console.log(root.val)
         this.inOrder(root.right)
     }
+
+    postOrder(root=this.root){
+        if(root==null) return
+
+        this.postOrder(root.left)
+        this.postOrder(root.right)
+        console.log(root.val)
+    }
    
 
     
@@ -118,4 +126,5 @@ console.log("root",root)
 console.log('serach',binaryTree.searchVal(700))
 
 // binaryTree.preOrder()
-binaryTree.inOrder()
+// binaryTree.inOrder()
+binaryTree.postOrder()
