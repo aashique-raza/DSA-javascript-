@@ -152,4 +152,15 @@ function size(root){
 return count
 }
 
-console.log('size',size(root))
+// console.log('size',size(root))
+
+function size2(root){
+    if(root==null) return 0
+
+    let leftCount=size(root.left)
+    let rightCount=size(root.right)
+
+    return (leftCount + rightCount) + 1
+}
+
+console.log('size',size2(root))
