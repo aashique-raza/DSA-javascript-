@@ -165,4 +165,22 @@ function leavesNode2(root,count=0){
     
 }
 
-console.log ('leaf node',leavesNode2(root))
+// console.log ('leaf node',leavesNode2(root))
+
+function nonLeaves(root){
+    if(root==null) return
+
+    let queue=[root]
+let nonLeaf=0
+    while(queue.length>0){
+
+        let curr=queue.shift()
+
+        if(curr.left || curr.right) nonLeaf++
+        if(curr.left)queue.push(curr.left)
+            if(curr.right) queue.push(curr.right)
+    }
+return nonLeaf
+}
+
+console.log('non leaf',nonLeaves(root))
