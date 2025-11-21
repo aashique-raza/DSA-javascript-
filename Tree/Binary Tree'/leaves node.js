@@ -183,4 +183,12 @@ let nonLeaf=0
 return nonLeaf
 }
 
+function nonLeaves2(root){
+    if(root==null) return 0
+
+   let isNonLeaf = (root.left !== null || root.right !== null) ? 1 : 0;
+
+    return isNonLeaf + nonLeaves2(root.left) + nonLeaves2(root.right);
+}
+
 console.log('non leaf',nonLeaves(root))
