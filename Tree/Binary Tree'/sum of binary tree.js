@@ -154,4 +154,12 @@ function sum(root){
 return sum
 }
 
-console.log('sum',sum(root))
+//  method 1 --
+
+function sum2(root){
+    if(root==null) return 0
+
+    return root.val+sum2(root.left)+sum2(root.right)
+}
+
+console.log('sum',sum2(root))
