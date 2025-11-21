@@ -154,4 +154,15 @@ function leavesNode(root){
     return leaf
 }
 
-console.log ('leaf node',leavesNode(root))
+function leavesNode2(root,count=0){
+    if(root==null) return
+    if(root.left==null && root.right==null){
+        
+        return 1
+    }
+
+   return leavesNode2(root.left,count) + leavesNode2(root.right,count)
+    
+}
+
+console.log ('leaf node',leavesNode2(root))
