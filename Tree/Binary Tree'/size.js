@@ -163,4 +163,6 @@ function size2(root){
     return (leftCount + rightCount) + 1
 }
 
+
+
 console.log('size',size2(root))
