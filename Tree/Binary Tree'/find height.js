@@ -6,7 +6,7 @@
 function height(root){
 
     if(root==null){
-        return -1
+        return 0
     }
 
     let leftHeight=height(root.left)
