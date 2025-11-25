@@ -24,3 +24,17 @@ function leftVuew(root){
     }
     return result
 }
+
+// ! second methos--
+function leftView2(root,level=0,result=[]){
+
+    if(root==null) return 0
+
+    if(level==result.length){
+        result.push(root.val)
+    }
+
+    leftView2(root.left,level+1,result)
+    leftView2(root.right,level+1,result)
+    return result
+}
