@@ -82,6 +82,32 @@ class BinarySearchTree{
         console.log(root.val)
     }
 
+    heightBFS(){
+        if(this.root==null) return 0
+
+        let queue=[this.root]
+        let height=0;
+
+        while(queue.length>0){
+            let size=queue.length
+
+            for(let i=0; i<size; i++){
+                let curr=queue.shift()
+
+                if(curr.left) queue.push(curr.left)
+                 if(curr.right) queue.push(curr.right)   
+            }
+        height++
+        }
+        return height
+    }
+
+    height(root=this.root){
+        if(root==null) return 0
+
+        return 1+Math.max(this.height(root.left),this.height(root.right))
+    }
+
 }
 
 let binarySearch=new BinarySearchTree()
@@ -91,3 +117,4 @@ binarySearch.insert(15)
 binarySearch.insert(5)
 binarySearch.inOrder()
 console.log('root',root)
+console.log('height',binarySearch.height())
