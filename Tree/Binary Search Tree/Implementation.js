@@ -43,10 +43,27 @@ class BinarySearchTree{
          return root   
     }
 
+    bfs(){
+        if(this.root==null) return
+
+        let queue=[this.root]
+
+        while(queue.length>0){
+            let curr=queue.shift()
+
+            console.log(curr.val)
+
+            if(curr.left) queue.push(curr.left)
+            if(curr.right) queue.push(curr.right)    
+        }
+    }
+
 }
 
 let binarySearch=new BinarySearchTree()
 let root=binarySearch.insert(10)
 binarySearch.insert(12)
 binarySearch.insert(15)
+binarySearch.insert(5)
+binarySearch.bfs()
 console.log('root',root)
