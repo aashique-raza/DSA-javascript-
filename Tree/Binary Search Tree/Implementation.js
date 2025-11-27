@@ -58,6 +58,30 @@ class BinarySearchTree{
         }
     }
 
+    preOrder(root=this.root){
+        if(root==null) return
+
+        console.log(root.val)
+        this.preOrder(root.left)
+        this.preOrder(root.right)
+    }
+
+    inOrder(root=this.root){
+        if(root==null) return
+
+        this.inOrder(root.left)
+        console.log(root.val)
+        this.inOrder(root.right)
+    }
+
+    postOrder(root=this.root){
+        if(root==null) return
+
+        this.postOrder(root.left)
+        this.postOrder(root.right)
+        console.log(root.val)
+    }
+
 }
 
 let binarySearch=new BinarySearchTree()
@@ -65,5 +89,5 @@ let root=binarySearch.insert(10)
 binarySearch.insert(12)
 binarySearch.insert(15)
 binarySearch.insert(5)
-binarySearch.bfs()
+binarySearch.inOrder()
 console.log('root',root)
