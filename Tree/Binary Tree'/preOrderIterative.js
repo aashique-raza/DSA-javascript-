@@ -43,3 +43,18 @@ function inOrderIterative(root){
         curr=curr.right
     }
 }
+
+function postOrderIterative(root){
+    if(root==null) return []
+
+    let stack=[root]
+    let result=[]
+
+    while(stack.length>0){
+        let curr=stack.pop()
+        result.push(curr.val)
+        if(curr.left) stack.push(curr.left)
+            if(curr.right)stack.push(curr.right)
+    }
+return result.reverse()
+}
