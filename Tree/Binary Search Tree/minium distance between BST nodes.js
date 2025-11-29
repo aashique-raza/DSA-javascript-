@@ -17,7 +17,7 @@ function minDistance(root){
 
     let min=+Infinity
     let arr=[]
-
+k = Math.min(k, arr.length);
     arr=inOrder(root,arr)
 
     for(let i=1; i<arr.length; i++){
