@@ -28,3 +28,13 @@ k = Math.min(k, arr.length);
     return min
 }
 
+
+var kthSmallest = function(root, k) {
+     if(root==null) return
+
+    
+    let arr=[]
+// k = Math.min(k, arr.length);
+    arr=inOrder(root,arr)
+    return arr[k-1]
+};
