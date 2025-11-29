@@ -29,3 +29,25 @@ function checkBST(root){
 
     return true
 }
+
+
+function checkBst2(root){
+    if(root==null) return
+
+    let prev=-Infinity
+
+    function valid(root){
+        if(root==null) return true 
+
+        if(!valid(root.left)) return false
+
+        if(root.val<prev){
+            return false
+        }else{
+            prev=root.val
+        }
+       return valid(root.right)
+      
+    }
+    return valid(root)
+}
