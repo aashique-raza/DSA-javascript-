@@ -34,3 +34,16 @@ var lowestCommonAncestor = function(root, p, q) {
 
     return arr1[i - 1];
 };
+
+
+function lca2(root,p,q){
+    if(root==null) return null
+
+    if(root.val>p.val && root.val>q.val){
+        return lca2(root.left,p,q)
+    }else if(root.val<p.val&&root.val<q.val){
+        return lca2(root.right,p,q)
+    }else{
+        return root
+    }
+}
