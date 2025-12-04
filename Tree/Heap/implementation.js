@@ -40,3 +40,49 @@ maxHeap.insert(10)
 maxHeap.insert(20)
 maxHeap.insert(30)
 console.log('max heap',maxHeap)
+
+
+
+// ! min heap--------------------
+
+class MinHeap {
+    constructor() {
+        this.heap = [];
+    }
+
+    getParent(i) {
+        return Math.floor((i - 1) / 2);
+    }
+
+    getLeftChild(i) {
+        return (2 * i) + 1;
+    }
+
+    getRightChild(i) {
+        return (2 * i) + 2;
+    }
+
+    swap(i1, i2) {
+        [this.heap[i1], this.heap[i2]] = [this.heap[i2], this.heap[i1]];
+    }
+
+    insert(val) {
+        this.heap.push(val);
+        this.heapifyUp();
+    }
+
+    heapifyUp() {
+        let idx = this.heap.length - 1;
+
+        while (idx > 0) {
+            let parent = this.getParent(idx);
+
+            if (this.heap[idx] < this.heap[parent]) {
+                this.swap(idx, parent);
+                idx = parent;
+            } else {
+                break;
+            }
+        }
+    }
+}
