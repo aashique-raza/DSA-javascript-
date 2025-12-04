@@ -33,6 +33,41 @@ class MaxHeap{
             }
         }
     }
+
+    remove(){
+        if(this.heap.length==0) return null
+        if(this.heap.length==1) return this.heap.pop()
+
+         let max=this.heap[0]
+         
+         this.heap[0]=this.heap.pop()
+         this.heapifyDown()
+         return max;
+    }
+
+    heapifyDown(){
+        let index=0;
+        let length=this.heap.length
+        while(true){
+            let leftIdx=this.getLeftChild(index)
+            let rightIdx=this.getRightChild(index)
+            let largest=index
+            if(leftIdx<length && this.heap[leftIdx]>this.heap[largest]){
+               largest=leftIdx
+            }
+
+            if(rightIdx<length&&this.heap[rightIdx]>this.heap[largest]){
+                largest=rightIdx
+            }
+
+            if(largest!=index){
+                this.swap(index,largest)
+                index=largest
+            }else{
+                break
+            }
+        }
+    }
 }
 
 let maxHeap=new MaxHeap()
