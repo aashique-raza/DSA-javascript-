@@ -50,11 +50,26 @@ class NaryTree {
       this.dfs(child);
     }
   }
+
+  bfs(){
+    if(!this.root)return null
+
+    let queue=[this.root]
+    while(queue.length>0){
+        let curr=queue.shift()
+        console.log('val',curr.val)
+
+        for(let child of curr.children){
+            queue.push(child)
+        }
+    }
+  }
 }
 
 let naryTree = new NaryTree();
 naryTree.addNode(10, 0);
 naryTree.addNode(20, 1, 0);
 naryTree.addNode(30, 2, 1);
-naryTree.dfs();
+// naryTree.dfs();
+naryTree.bfs()
 console.log("n-ary tree", naryTree);
