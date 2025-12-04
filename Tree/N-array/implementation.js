@@ -64,6 +64,21 @@ class NaryTree {
         }
     }
   }
+  bfs2() {
+    if (!this.root) return;
+
+    let queue = [this.root];
+    let i = 0;
+
+    while (i < queue.length) {
+        let curr = queue[i++];
+        console.log("val:", curr.val);
+
+        for (let child of curr.children) {
+            queue.push(child);
+        }
+    }
+}
 }
 
 let naryTree = new NaryTree();
