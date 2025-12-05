@@ -49,3 +49,22 @@ var levelOrder = function(root) {
     }
     return result
 };
+
+
+
+var preorder = function(root) {
+    if(!root) return []
+    let result=[]
+
+    function collectResult(node){
+        if(!node)return result
+
+        result.push(node.val)
+
+        for(let child of node.children){
+            collectResult(child)
+        }
+        return result
+    }
+    return collectResult(root)
+};
