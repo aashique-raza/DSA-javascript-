@@ -105,3 +105,22 @@ var maxDepth = function(root) {
 
     return findDepth(root)
 };
+
+
+var maxDepth = function(root) {
+    if (!root) return 0;
+
+    let stack = [[root, 1]];  // [node, depth]
+    let max = 0;
+
+    while (stack.length > 0) {
+        let [node, depth] = stack.pop();
+        max = Math.max(max, depth);
+
+        for (let child of node.children) {
+            stack.push([child, depth + 1]);
+        }
+    }
+
+    return max;
+};
