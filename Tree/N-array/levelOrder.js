@@ -68,3 +68,23 @@ var preorder = function(root) {
     }
     return collectResult(root)
 };
+
+var postorder = function(root) {
+     if(!root) return []
+    let result=[]
+
+    function collectResult(node){
+        if(!node)return 
+
+       
+
+        for(let child of node.children){
+            collectResult(child)
+             result.push(child.val)
+        }
+        return result
+    }
+    result= collectResult(root)
+    result.push(root.val)
+    return result
+};
