@@ -35,3 +35,16 @@ function countNodes2(root){
     }
     return queue.length
 }
+
+//  aproach 2 using recursion--
+function countNodes3(root){
+    if(!root) return 0
+
+    let sum=1;
+
+    for(let child of root.children){
+       sum+= countNodes3(child)
+    }
+
+    return sum
+}
