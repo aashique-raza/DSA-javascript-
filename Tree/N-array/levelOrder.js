@@ -88,3 +88,20 @@ var postorder = function(root) {
     result.push(root.val)
     return result
 };
+
+
+var maxDepth = function(root) {
+    if(!root) return 0
+
+    
+    function findDepth(node){
+        if(!node) return 0
+        let max=0;
+        for(let child of node.children){
+           max=Math.max(max,findDepth(child))
+        }
+        return 1+max
+    }
+
+    return findDepth(root)
+};
