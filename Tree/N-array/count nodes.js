@@ -36,7 +36,7 @@ function countNodes2(root){
     return queue.length
 }
 
-//  aproach 2 using recursion--
+//  aproach 2 using recursion
 function countNodes3(root){
     if(!root) return 0
 
