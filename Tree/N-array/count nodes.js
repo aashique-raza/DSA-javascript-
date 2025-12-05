@@ -48,3 +48,27 @@ function countNodes3(root){
 
     return sum
 }
+
+
+//  ! count leaf nodes--
+//  approach 1--level order traversal--
+
+function countLeaf(root){
+    if(!root) return 0
+
+    let queue=[root]
+    let i=0;
+    let leaf=0;
+    while(queue.length>i){
+        let curr=queue[i++]
+
+        if(curr.children.length==0){
+             leaf++
+        }else{
+            for(let child of curr.children){
+                queue.push(child)
+            }
+        }
+    }
+    return leaf
+}
