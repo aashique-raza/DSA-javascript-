@@ -27,10 +27,22 @@ class Trie{
         curr.isEndOfWord=true;
         return this.root
     }
+
+    search(word){
+        let curr=this.root
+        for(let char of word){
+            if(!curr.children[char]){
+                return false
+            }
+            curr=curr.children[char]
+        }
+        return curr.isEndOfWord
+    }
    
 }
 
 
 const myTrie = new Trie();
 console.log('root',myTrie.insert('cat'))
+console.log('search',myTrie.search('cat'))
 // console.log("Trie initialized:", myTrie);
