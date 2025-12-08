@@ -34,39 +34,64 @@ function countElements(nums, k) {
 
 //  optimized solution---
 
-function count(nums, k) {
-  if (nums.length === 0) return 0;
+// function count(nums, k) {
+//   if (nums.length === 0) return 0;
 
 
-  let arr = nums.sort((a, b) => a - b);
+//   let arr = nums.sort((a, b) => a - b);
 
 
-  let map = new Map();
+//   let map = new Map();
 
   
-  let lastIndex = arr.length - 1;
+//   let lastIndex = arr.length - 1;
 
-  for (let i = arr.length - 1; i >= 0; i--) {
+//   for (let i = arr.length - 1; i >= 0; i--) {
     
-    if (i === arr.length - 1 || arr[i] !== arr[i + 1]) {
-      lastIndex = i;
-    }
+//     if (i === arr.length - 1 || arr[i] !== arr[i + 1]) {
+//       lastIndex = i;
+//     }
 
-    let greater = arr.length - lastIndex - 1;
+//     let greater = arr.length - lastIndex - 1;
 
    
-    map.set(arr[i], greater);
-  }
+//     map.set(arr[i], greater);
+//   }
 
   
-  let result = 0;
-  for (let i = 0; i < nums.length; i++) {
-    if (map.get(nums[i]) >= k) {
-      result++;
+//   let result = 0;
+//   for (let i = 0; i < nums.length; i++) {
+//     if (map.get(nums[i]) >= k) {
+//       result++;
+//     }
+//   }
+
+//   return result;
+// }
+
+function count(nums, k) {
+  let arr = nums.slice().sort((a,b) => a-b); 
+  let n = arr.length;
+
+
+  let mp = new Map();
+
+ 
+  for (let i = n - 1; i >= 0; i--) {
+    if (!mp.has(arr[i])) {
+      
+      mp.set(arr[i], n - i - 1);
     }
   }
 
-  return result;
+  
+  let ans = 0;
+  for (let num of nums) {
+    if (mp.get(num) >= k) ans++;
+  }
+
+  return ans;
 }
+
 
 console.log("result", count([1, 2, 2, 4, 4, 4, 10], 1));
