@@ -71,10 +71,28 @@ class MaxHeap {
 //   }
 }
 
-let maxHeap = new MaxHeap();
-maxHeap.insert(1);
-maxHeap.insert(2);
-// maxHeap.insert(3)
-// maxHeap.insert(4)
-console.log("height", maxHeap.heightOfHeap());
-console.log("max heap", maxHeap);
+// let maxHeap = new MaxHeap();
+// maxHeap.insert(1);
+// maxHeap.insert(2);
+// // maxHeap.insert(3)
+// // maxHeap.insert(4)
+// console.log("height", maxHeap.heightOfHeap());
+// console.log("max heap", maxHeap);
+
+
+
+// approach 2--optimized
+
+function heightOfHeap(heap){
+    if(heap.length==0) return 0
+     let height=0;
+     let n=heap.length
+
+     while(n!=1){
+
+        n=Math.floor(n/2)
+        height++
+     }
+
+     return height
+}
