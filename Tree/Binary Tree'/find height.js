@@ -37,3 +37,28 @@ function height1(root){
     }
     return height
 }
+
+
+// ! min height of tree--
+
+function minHeight(root){
+    if(!root) return 0
+
+    let queue=[root]
+    let height=0;
+
+    while(queue.length>0){
+        let size=queue.length
+
+        for(let i=0; i<size; i++){
+            let curr=queue.shift()
+
+            if(!curr.left && !curr.right) return height
+            if(curr.left) queue.push(curr.left)
+            if(curr.right) queue.push(curr.right)    
+        }
+    height++
+    }
+
+    return height
+}
