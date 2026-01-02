@@ -41,3 +41,40 @@ function findMode(root){
 
     return result
 }
+
+
+//  approach 2 without extra space--
+
+function findMode2(root){
+    if(!root) return []
+
+    let result=[];
+    let currNo=null;
+    let currFreq=0;
+    let maxFreq=0
+
+    function solve(node){
+        if(!node) return null
+
+        solve(node.left)
+
+        if(node.val==currNo){
+            currFreq++
+        }else{
+            currNo=node.val
+            currFreq=1
+        }
+
+        if(currFreq>maxFreq){
+            result=[]
+            result.push(currNo)
+            maxFreq=currFreq
+        }else if(currFreq==maxFreq){
+            result.push(currNo)
+        }
+
+        solve(node.right)
+    }
+    solve(root)
+    return result
+}
