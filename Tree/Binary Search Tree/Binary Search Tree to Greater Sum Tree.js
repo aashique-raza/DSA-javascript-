@@ -41,3 +41,24 @@ function greaterSumTree(root) {
 
   return root;
 }
+
+//  approach 2 without using extra space--
+
+function greaterSumTree2(root){
+  if(!root) return null
+
+  let sum=0;
+
+  function solve(node){
+
+    if(!node) return null
+
+    solve(node.right)
+    sum=sum+node.val
+    node.val=sum
+    solve(node.left)
+  }
+  solve(root)
+  return root
+}
+
