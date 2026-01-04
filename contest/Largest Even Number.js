@@ -12,4 +12,4 @@ var largestEven = function(s) {
     }
     if(idx==-1) return ''
    return s.substring(0,idx+1)
-};©leetcode
+};
