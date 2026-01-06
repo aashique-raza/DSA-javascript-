@@ -36,3 +36,25 @@ function minimumTime(trips, totalTrips) {
     }
     return left;
 }
+
+// approacch 3 using sorted trips
+function minimumTime(trips, totalTrips) {
+    trips.sort((a,b) => a-b);
+    let left = 1;
+    let right = trips[0] * totalTrips; 
+
+    while(left < right){
+        let mid = Math.floor((left + right) / 2);
+        let count = 0;
+        for(let i=0; i<trips.length; i++){
+            count += Math.floor(mid / trips[i]);
+        }
+        if(count >= totalTrips){
+            right = mid;
+        }
+        else{
+            left = mid + 1;
+        }
+    }
+    return left;
+}
