@@ -14,3 +14,25 @@ function minimumTime(trips, totalTrips) {
     return -1;
 }
 console.log(minimumTime([1,2,3], 5)); // 3
+
+
+// approach 2-- binary search
+
+function minimumTime(trips, totalTrips) {
+    let left = 1;
+    let right = Math.min(...trips) * totalTrips;
+    while(left < right){
+        let mid = Math.floor((left + right) / 2);
+        let count = 0;
+        for(let i=0; i<trips.length; i++){
+            count += Math.floor(mid / trips[i]);
+        }
+        if(count >= totalTrips){
+            right = mid;
+        }
+        else{
+            left = mid + 1;
+        }
+    }
+    return left;
+}
