@@ -69,8 +69,10 @@ function houseRobber(nums) {
     dp[1] = Math.max(nums[0], nums[1]);
 
     for (let i = 2; i < nums.length; i++) {
-        let include = nums[i] + maxTillIndexSafe(dp, i - 2);
-        let exclude = maxTillIndexSafe(dp, i - 1);
+        // let include = nums[i] + maxTillIndexSafe(dp, i - 2);
+        let include = nums[i] + dp[i-2];
+        // let exclude = maxTillIndexSafe(dp, i - 1);
+        let exclude = dp[i-1];
         dp[i] = Math.max(include, exclude);
     }
 
