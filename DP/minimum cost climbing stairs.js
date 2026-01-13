@@ -12,6 +12,21 @@ function minCostClimbingStairs(cost) {
     return dp[n];
 
 }
+//  console.log(minCostClimbingStairs([10, 15, 20])); // Output: 15
+
+function mincostClimbingStairsOptimized(cost) {
+    const n = cost.length;
+    let first = cost[0];
+    let second = cost[1];
+   let dp= new Array(n).fill(0);
+
+    for (let i = 2; i < n; i++) {
+        dp[i] = Math.min(first + cost[i], second + cost[i]);
+        first = second;
+        second = dp[i];
+    }
+    return Math.min(first, second);
+}
 
 
 //  approach 2 using recursion and memoization
