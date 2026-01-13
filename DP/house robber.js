@@ -21,3 +21,25 @@ function houseRobber(nums){
     helper(0,0);
     return max;
 } 
+
+//  using dp with recursion--
+function houseRobber(nums){
+   
+    let dp=new Array(nums.length).fill(-1);
+
+    function helper(i){
+        if(i>=nums.length){
+            return 0;
+        }
+        if(dp[i]!==-1){
+            return dp[i];
+        }
+        // include
+        let include=nums[i]+helper(i+2);
+        // exclude
+        let exclude=helper(i+1);
+        dp[i]=Math.max(include,exclude);
+        return dp[i];
+    }
+    return helper(0);
+}
