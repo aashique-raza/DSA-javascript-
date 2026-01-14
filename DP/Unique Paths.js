@@ -36,3 +36,34 @@ var uniquePaths = function(m, n,mIdx=0,nIdx=0) {
     let dp = createGrid(m,n);
     return solve(m,n,dp);
 };
+
+
+//  tabulation--
+ function createGrid(m, n) {
+    const grid = new Array(m);
+    for (let i = 0; i < m; i++) {
+        grid[i] = new Array(n).fill(0);
+    }
+    return grid;
+}
+
+var uniquePaths = function(m, n) {
+    let dp = createGrid(m,n);
+    
+    //  fill 1 in first row and first column
+    for(let i=0;i<m;i++){
+        dp[i][0]=1
+    }
+    for(let j=0;j<n;j++){
+        dp[0][j]=1
+    }
+
+    //  start filling the dp table from (1,1)
+    for(let i=1;i<m;i++){
+        for(let j=1;j<n;j++){
+            dp[i][j]=dp[i-1][j]+dp[i][j-1]
+        }
+    }
+
+    return dp[m-1][n-1];
+}
